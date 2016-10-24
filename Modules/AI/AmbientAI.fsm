@@ -1,0 +1,452 @@
+/*%FSM<COMPILE "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, AmbientAI2">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"init",0,250,-451.013611,314.500122,-361.013611,364.500122,0.000000,"init"};
+item1[] = {"_",8,218,-316.966187,314.403992,-226.966187,364.403992,0.000000,""};
+item2[] = {"footofthe_mountain",2,250,-195.456268,314.902588,-105.456268,364.902588,0.000000,"footofthe" \n "mountain" \n ""};
+item3[] = {"players_present",4,218,-69.604095,315.427124,20.395905,365.427124,0.000000,"players" \n "present?"};
+item4[] = {"find_player",2,250,45.566650,316.108246,135.566666,366.108246,0.000000,"find player"};
+item5[] = {"HC_Running_",4,218,46.132195,245.074829,136.132202,295.074829,0.000000,"HC" \n "Running?"};
+item6[] = {"terminate_on_ser",1,250,46.428589,169.544403,136.428619,219.544388,0.000000,"terminate" \n "on server"};
+item7[] = {"player_found_",4,218,48.786888,384.479767,138.786896,434.479767,0.000000,"player" \n "found?"};
+item8[] = {"check_distance",2,250,45.486233,481.358215,135.486252,531.358215,0.000000,"check distance"};
+item9[] = {"not_OK",4,218,-68.188240,480.596924,21.811768,530.596924,2.000000,"not" \n "OK"};
+item10[] = {"give_it__some_time",2,250,-194.304688,481.162476,-104.304688,531.162476,0.000000,"give it " \n "some time" \n "DOC"};
+item11[] = {"are_we_there__yet",4,218,-194.870209,407.076141,-104.870209,457.076141,0.000000,"are we" \n "there " \n "yet?"};
+item12[] = {"OK",4,218,44.921593,550.158875,134.921600,600.158875,1.000000,"OK"};
+item13[] = {"is_over_water_",2,250,45.487118,627.072937,135.487137,677.072937,0.000000,"is over water?"};
+item14[] = {"water",4,218,-70.449501,628.769470,19.550507,678.769470,0.000000,"water"};
+item15[] = {"",7,210,-152.738220,650.335083,-144.738220,658.335083,0.000000,""};
+item16[] = {"land",4,218,45.365013,707.258179,135.365021,757.258118,0.000000,"land"};
+item17[] = {"spawn_triggers",2,250,193.114258,707.525879,283.114288,757.525879,0.000000,"spawn" \n "triggers"};
+item18[] = {"dac_doing_stuff",4,218,192.621750,627.105347,282.621765,677.105347,0.000000,"dac" \n "doing stuff?"};
+item19[] = {"spawn_units",2,250,192.621796,552.298462,282.621826,602.298462,0.000000,"spawn" \n "units"};
+item20[] = {"prepare_for_moni",8,218,193.061874,483.246643,283.061859,533.246643,0.000000,"prepare" \n "for monitoring"};
+item21[] = {"define__check_ti",2,250,193.061829,393.038330,283.061829,443.038330,0.000000,"define " \n "check time"};
+item22[] = {"time_to_check__",4,218,192.493530,281.309906,282.493530,331.309906,0.000000,"time" \n "to" \n "check ?="};
+item23[] = {"units_gone_enemies",2,250,193.061829,170.817932,283.061859,220.817932,0.000000,"units gone" \n "enemies dead?"};
+item24[] = {"yes",4,218,193.610153,86.163956,283.610138,136.163956,1.000000,"yes"};
+item25[] = {"no",8,218,306.419983,278.057648,396.419983,328.057648,0.000000,"no"};
+item26[] = {"",7,210,347.648834,413.150604,355.648834,421.150635,0.000000,""};
+item27[] = {"",7,210,347.080536,192.082748,355.080536,200.082764,0.000000,""};
+item28[] = {"remove_triggers",2,250,193.685120,4.551498,283.685150,54.551498,0.000000,"remove" \n "triggers"};
+item29[] = {"dac_doing_stuff",4,218,53.315479,5.119797,143.315475,55.119797,0.000000,"dac" \n "doing" \n "stuff?"};
+item30[] = {"delete_daczone",2,250,-70.573418,4.551498,19.426582,54.551498,0.000000,"delete" \n "daczone"};
+item31[] = {"DESCEND",4,218,-195.598907,3.983200,-105.598907,53.983200,0.000000,"DESCEND"};
+link0[] = {0,1};
+link1[] = {1,2};
+link2[] = {2,3};
+link3[] = {3,4};
+link4[] = {4,5};
+link5[] = {4,7};
+link6[] = {5,6};
+link7[] = {7,8};
+link8[] = {8,9};
+link9[] = {8,12};
+link10[] = {9,10};
+link11[] = {10,11};
+link12[] = {11,2};
+link13[] = {12,13};
+link14[] = {13,14};
+link15[] = {13,16};
+link16[] = {14,15};
+link17[] = {15,10};
+link18[] = {16,17};
+link19[] = {17,18};
+link20[] = {18,19};
+link21[] = {19,20};
+link22[] = {20,21};
+link23[] = {21,22};
+link24[] = {22,23};
+link25[] = {23,24};
+link26[] = {23,27};
+link27[] = {24,28};
+link28[] = {25,26};
+link29[] = {26,21};
+link30[] = {27,25};
+link31[] = {28,29};
+link32[] = {29,30};
+link33[] = {30,31};
+link34[] = {31,2};
+globals[] = {0.000000,0,0,0,0,640,480,1,33,6316128,1,-527.729248,554.546631,845.775330,-247.929977,1231,1244,1};
+window[] = {2,-1,-1,-1,-1,833,78,1518,73,3,1249};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "AmbientAI2";
+        class States
+        {
+                /*%FSM<STATE "init">*/
+                class init
+                {
+                        name = "init";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"_target = objNull;" \n
+                         "_targetPos = [0,0,0];" \n
+                         "_targetDistance = 0;" \n
+                         "_isWater = 0;" \n
+                         "_DACUnits = AW_UNITS;" \n
+                         "//Dbug" \n
+                         "hint ""AmbientFSM Started"";"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="footofthe_mountain";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "footofthe_mountain">*/
+                class footofthe_mountain
+                {
+                        name = "footofthe_mountain";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "players_present">*/
+                                class players_present
+                                {
+                                        itemno = 3;
+                                        priority = 0.000000;
+                                        to="find_player";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"((count allPlayers) > 0)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "find_player">*/
+                class find_player
+                {
+                        name = "find_player";
+                        itemno = 4;
+                        init = /*%FSM<STATEINIT""">*/"_target = call AW_fnc_findPlayer;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "player_found_">*/
+                                class player_found_
+                                {
+                                        itemno = 7;
+                                        priority = 0.000000;
+                                        to="check_distance";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!isNull _target"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "HC_Running_">*/
+                                class HC_Running_
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="terminate_on_ser";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"isServer && (!isNil 'mytag_headlessClient_client_active')"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "terminate_on_ser">*/
+                class terminate_on_ser
+                {
+                        name = "terminate_on_ser";
+                        itemno = 6;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "check_distance">*/
+                class check_distance
+                {
+                        name = "check_distance";
+                        itemno = 8;
+                        init = /*%FSM<STATEINIT""">*/"if ((_targetPos distance (getMarkerPos ""respawn_west"")) > 1500 && side _target == WEST && (_target distance (getMarkerPos ""respawn_west"")) > 1500) then " \n
+                         "{" \n
+                         "_targetDistance = 1;" \n
+                         "} else" \n
+                         "{" \n
+                         "_targetDistance = 0;" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "not_OK">*/
+                                class not_OK
+                                {
+                                        itemno = 9;
+                                        priority = 2.000000;
+                                        to="give_it__some_time";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_targetDistance == 0"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "OK">*/
+                                class OK
+                                {
+                                        itemno = 12;
+                                        priority = 1.000000;
+                                        to="is_over_water_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_targetDistance == 1"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"hint ""target ok,checking if water"";"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "give_it__some_time">*/
+                class give_it__some_time
+                {
+                        name = "give_it__some_time";
+                        itemno = 10;
+                        init = /*%FSM<STATEINIT""">*/"_timeout = time + 60;" \n
+                         "" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "are_we_there__yet">*/
+                                class are_we_there__yet
+                                {
+                                        itemno = 11;
+                                        priority = 0.000000;
+                                        to="footofthe_mountain";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time >= _timeout"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "is_over_water_">*/
+                class is_over_water_
+                {
+                        name = "is_over_water_";
+                        itemno = 13;
+                        init = /*%FSM<STATEINIT""">*/"_water = surfaceIsWater position _target;" \n
+                         "if (_water) then {" \n
+                         "_isWater = 1;" \n
+                         "} else {" \n
+                         "_isWater = 0;" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "land">*/
+                                class land
+                                {
+                                        itemno = 16;
+                                        priority = 0.000000;
+                                        to="spawn_triggers";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_isWater == 0"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"//DEBUG" \n
+                                         "hint ""isOn Land"";"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "water">*/
+                                class water
+                                {
+                                        itemno = 14;
+                                        priority = 0.000000;
+                                        to="give_it__some_time";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_isWater == 1"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"hint ""over water"";"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "spawn_triggers">*/
+                class spawn_triggers
+                {
+                        name = "spawn_triggers";
+                        itemno = 17;
+                        init = /*%FSM<STATEINIT""">*/"_distance = 1000 + (random 500);" \n
+                         "_dir = getDir _target;" \n
+                         "_targetPos = [_target, _distance, _dir] call BIS_fnc_relPos;" \n
+                         "_AAIT = createTrigger [""EmptyDetector"", _target];" \n
+                         "_AAIT setTriggerArea [750, 750, 0, false];" \n
+                         "_AAIT setTriggerActivation [""WEST"", ""PRESENT"", false];" \n
+                         "_AAIT setTriggerStatements [""this"","""",""""];" \n
+                         "_AAIT2 = createTrigger [""EmptyDetector"", _targetPos];" \n
+                         "_AAIT2 setTriggerArea [1500, 1500, 0, false];" \n
+                         "_AAIT2 setTriggerActivation [""WEST"", ""PRESENT"", false];" \n
+                         "_AAIT2 setTriggerStatements [""this"","""",""""];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "dac_doing_stuff">*/
+                                class dac_doing_stuff
+                                {
+                                        itemno = 18;
+                                        priority = 0.000000;
+                                        to="spawn_units";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"DAC_NewZone == 0"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "spawn_units">*/
+                class spawn_units
+                {
+                        name = "spawn_units";
+                        itemno = 19;
+                        init = /*%FSM<STATEINIT""">*/"_DACvalues = [""ambient_zone"",[1,0,0],[8,4,40,5],[4,2,30,5],[4,1,20,5],[],[_DACUnits,0,0,0]];" \n
+                         "[_targetPos,1000,1000,0,0,_DACvalues] call DAC_fNewZone;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "prepare_for_moni">*/
+                                class prepare_for_moni
+                                {
+                                        itemno = 20;
+                                        priority = 0.000000;
+                                        to="define__check_ti";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "define__check_ti">*/
+                class define__check_ti
+                {
+                        name = "define__check_ti";
+                        itemno = 21;
+                        init = /*%FSM<STATEINIT""">*/"_timeout = time + 30;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "time_to_check__">*/
+                                class time_to_check__
+                                {
+                                        itemno = 22;
+                                        priority = 0.000000;
+                                        to="units_gone_enemies";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time >= _timeout"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "units_gone_enemies">*/
+                class units_gone_enemies
+                {
+                        name = "units_gone_enemies";
+                        itemno = 23;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "yes">*/
+                                class yes
+                                {
+                                        itemno = 24;
+                                        priority = 1.000000;
+                                        to="remove_triggers";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(count list _AAIT < 1) && (count list _AAIT2 < 1)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "no">*/
+                                class no
+                                {
+                                        itemno = 25;
+                                        priority = 0.000000;
+                                        to="define__check_ti";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "remove_triggers">*/
+                class remove_triggers
+                {
+                        name = "remove_triggers";
+                        itemno = 28;
+                        init = /*%FSM<STATEINIT""">*/"deletevehicle _AAIT;" \n
+                         "deletevehicle _AAIT2;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "dac_doing_stuff">*/
+                                class dac_doing_stuff
+                                {
+                                        itemno = 29;
+                                        priority = 0.000000;
+                                        to="delete_daczone";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"DAC_NewZone == 0"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "delete_daczone">*/
+                class delete_daczone
+                {
+                        name = "delete_daczone";
+                        itemno = 30;
+                        init = /*%FSM<STATEINIT""">*/"[""ambient_zone""] call DAC_fDeleteZone;" \n
+                         "_timeout = time + 60;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "DESCEND">*/
+                                class DESCEND
+                                {
+                                        itemno = 31;
+                                        priority = 0.000000;
+                                        to="footofthe_mountain";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time >= _timeout"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="init";
+        finalStates[] =
+        {
+                "terminate_on_ser",
+        };
+};
+/*%FSM</COMPILE>*/

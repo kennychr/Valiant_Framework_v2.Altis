@@ -1,0 +1,31 @@
+/*%FSM<COMPILE "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, aw_defuseIED">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"_",0,4346,374.245453,307.779877,464.245453,357.779877,0.000000,""};
+globals[] = {0.000000,0,0,0,0,640,480,1,2,6316128,1,-118.826752,942.319153,945.844727,-257.787201,1132,1284,1};
+window[] = {2,-1,-1,-1,-1,1055,-2534,-614,26,3,1150};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "aw_defuseIED";
+        class States
+        {
+                /*%FSM<STATE "_">*/
+                class _
+                {
+                        name = "_";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="_";
+        finalStates[] =
+        {
+        };
+};
+/*%FSM</COMPILE>*/

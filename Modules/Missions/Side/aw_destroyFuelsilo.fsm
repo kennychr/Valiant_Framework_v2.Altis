@@ -1,0 +1,211 @@
+/*%FSM<COMPILE "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, aw_destroyFuelsilo">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"init_",0,250,-34.601624,167.492432,55.398376,217.492432,0.000000,"init" \n ""};
+item1[] = {"pos_found_",4,218,-33.301758,254.474060,56.698242,304.474060,0.000000,"pos found?"};
+item2[] = {"DevO_objective_",2,250,-33.301758,344.165710,56.698257,394.165710,0.000000,"DevO+objective" \n ""};
+item3[] = {"silo_spawned_",4,218,-32.001900,424.758240,57.998108,474.758240,0.000000,"silo spawned?"};
+item4[] = {"Eneeeemies",2,250,-30.701969,537.847717,59.298050,587.847717,0.000000,"Eneeeemies"};
+item5[] = {"ready_for_monito",8,218,-28.102242,605.441467,61.897766,655.441467,0.000000,"ready for monitoring"};
+item6[] = {"set_timeout",2,250,-29.207157,680.398987,60.792862,730.398987,0.000000,"set timeout"};
+item7[] = {"time_to_check_",4,218,-28.796547,768.151367,61.203461,818.151367,0.000000,"time to check?"};
+item8[] = {"silo_dead_",2,250,-27.943699,876.463440,62.056320,926.463440,0.000000,"silo dead?"};
+item9[] = {"no",8,218,105.101067,766.445679,195.101074,816.445679,0.000000,"no"};
+item10[] = {"",7,210,146.101044,702.160522,154.101044,710.160522,0.000000,""};
+item11[] = {"",7,210,146.953918,896.610535,154.953918,904.610596,0.000000,""};
+item12[] = {"yes",4,218,-28.120735,954.345825,61.879272,1004.345886,0.000000,"yes"};
+item13[] = {"End_machine",1,250,-28.587162,1037.782104,61.412872,1087.782104,0.000000,"End machine"};
+link0[] = {0,1};
+link1[] = {1,2};
+link2[] = {2,3};
+link3[] = {3,4};
+link4[] = {4,5};
+link5[] = {5,6};
+link6[] = {6,7};
+link7[] = {7,8};
+link8[] = {8,11};
+link9[] = {8,12};
+link10[] = {9,10};
+link11[] = {10,6};
+link12[] = {11,9};
+link13[] = {12,13};
+globals[] = {0.000000,0,0,0,0,640,480,1,15,6316128,1,-283.819672,283.818176,1136.643433,550.540283,830,857,1};
+window[] = {0,-1,-1,-1,-1,1133,-2456,-536,104,1,848};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "aw_destroyFuelsilo";
+        class States
+        {
+                /*%FSM<STATE "init_">*/
+                class init_
+                {
+                        name = "init_";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"_detail_objects = [" \n
+                         "	[""Land_Tank_rust_F"",[-5.44946,6.64551,0],0,1,0,[0,0],"""","""",true,false], " \n
+                         "	[""Land_Net_Fence_Gate_F"",[7.8479,-9.50586,0],0,1,0,[0,0],"""","""",true,false], " \n
+                         "	[""Land_IndFnc_9_F"",[1.35156,8.88965,0],0,1,0,[0,0],"""","""",true,false], " \n
+                         "	[""Land_IndFnc_9_F"",[8.96729,7.28027,0],90,1,0,[0,-0],"""","""",true,false], " \n
+                         "	[""Land_IndFnc_9_F"",[-7.65503,8.83447,0],0,1,0,[0,0],"""","""",true,false], " \n
+                         "	[""Land_IndFnc_9_F"",[-9.16113,1.18896,0],270,1,0,[0,0],"""","""",true,false], " \n
+                         "	[""Land_IndFnc_9_F"",[8.99487,-1.72656,0],90,1,0,[0,-0],"""","""",true,false], " \n
+                         "	[""Land_IndFnc_9_F"",[-9.14795,-7.81787,0],270,1,0,[0,0],"""","""",true,false], " \n
+                         "	[""Land_IndFnc_9_F"",[-1.53516,-9.43896,0],180,1,0,[0,0],"""","""",true,false], " \n
+                         "	[""Land_IndFnc_3_Hole_F"",[7.35596,-9.50879,0],0,1,0,[0,0],"""","""",true,false], " \n
+                         "	[""Land_IndFnc_Pole_F"",[8.90332,8.86279,0],0,1,0,[0,0],"""","""",true,false], " \n
+                         "	[""Land_IndFnc_Pole_F"",[-9.1106,8.67285,0],270,1,0,[0,0],"""","""",true,false], " \n
+                         "	[""Land_IndFnc_Pole_F"",[8.99634,-9.38232,0],90,1,0,[0,-0],"""","""",true,false], " \n
+                         "	[""Land_IndFnc_Pole_F"",[-9.06592,-9.44873,0],180,1,0,[0,0],"""","""",true,false]" \n
+                         "];" \n
+                         "" \n
+                         "_silo_pos = nil;" \n
+                         "_silo_pos = [""land2"",true] call AW_fnc_findSpace;" \n
+                         "diag_log [""AW_MISSIONLOGGING--->  aw_destroyFuelsilo:INIT""];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "pos_found_">*/
+                                class pos_found_
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="DevO_objective_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!isNil ""_silo_pos"""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "DevO_objective_">*/
+                class DevO_objective_
+                {
+                        name = "DevO_objective_";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/"[_silo_pos,0,_detail_objects] call BIS_fnc_ObjectsMapper;" \n
+                         "_siloObj = createVehicle [""Land_dp_smallTank_F"",_silo_pos, [],0, ""NONE"" ];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "silo_spawned_">*/
+                                class silo_spawned_
+                                {
+                                        itemno = 3;
+                                        priority = 0.000000;
+                                        to="Eneeeemies";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"alive _siloObj"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Eneeeemies">*/
+                class Eneeeemies
+                {
+                        name = "Eneeeemies";
+                        itemno = 4;
+                        init = /*%FSM<STATEINIT""">*/"_spawnedUnits = [EAST, 10, getPos _siloObj, 200] call AW_fnc_spawnEnemy;" \n
+                         "[_spawnedUnits, [[""patrol"", getPos _siloObj, 200]]] call AW_fnc_setBehaviour;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "ready_for_monito">*/
+                                class ready_for_monito
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="set_timeout";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_taskID = [""An OPFOR fuel silo has been located, it needs to be stopped ASAP"",""Destroy Fuelsilo"",""testWords"",_silo_pos,""Destroy""] call AW_fnc_makeTask;" \n
+                                         "" \n
+                                         "diag_log [""AW_MISSIONLOGGING--->  aw_destroyFuelsilo:Tasked spawned,Entering monitor loop""];"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "set_timeout">*/
+                class set_timeout
+                {
+                        name = "set_timeout";
+                        itemno = 6;
+                        init = /*%FSM<STATEINIT""">*/"_timeout = (time + 5 + (random 10));"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "time_to_check_">*/
+                                class time_to_check_
+                                {
+                                        itemno = 7;
+                                        priority = 0.000000;
+                                        to="silo_dead_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time >= _timeout"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "silo_dead_">*/
+                class silo_dead_
+                {
+                        name = "silo_dead_";
+                        itemno = 8;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "no">*/
+                                class no
+                                {
+                                        itemno = 9;
+                                        priority = 0.000000;
+                                        to="set_timeout";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "yes">*/
+                                class yes
+                                {
+                                        itemno = 12;
+                                        priority = 0.000000;
+                                        to="End_machine";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!alive _siloObj"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"MAINFSM setFSMVariable [""_main_complete"", 1];" \n
+                                         "[_taskID,""SUCCEEDED""] call BIS_fnc_taskSetState;" \n
+                                         "_spawnedUnits call AW_fnc_collectGarbage;" \n
+                                         "_siloObj call AW_fnc_collectGarbage;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "End_machine">*/
+                class End_machine
+                {
+                        name = "End_machine";
+                        itemno = 13;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="init_";
+        finalStates[] =
+        {
+                "End_machine",
+        };
+};
+/*%FSM</COMPILE>*/

@@ -1,0 +1,152 @@
+/*%FSM<COMPILE "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, AAA">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Init_",0,250,-456.503662,64.768890,-366.503723,114.768890,0.000000,"Init" \n ""};
+item1[] = {"AAA",8,218,-566.849731,144.049789,-476.849731,194.049789,0.000000,"AAA"};
+item2[] = {"find_positions",2,250,-567.063110,209.512619,-477.063110,259.512634,0.000000,"find" \n "positions"};
+item3[] = {"wait_for__posistions",4,218,-567.600830,289.560364,-477.600800,339.560364,0.000000,"wait for " \n "posistions" \n ""};
+item4[] = {"spawn_emplacemen",2,250,-567.600830,383.659607,-477.600800,433.659607,0.000000,"spawn" \n "emplacements"};
+item5[] = {"anchor___wait",2,250,-473.501495,601.432251,-383.501465,651.432251,0.000000,"anchor" \n "+" \n "wait"};
+item6[] = {"_",8,218,-568.138550,467.542358,-478.138580,517.542358,0.000000,""};
+item7[] = {"_",4,218,-473.511841,659.976807,-383.511841,709.976746,0.000000,""};
+item8[] = {"End",1,250,-473.692474,720.994507,-383.692474,770.994507,0.000000,"End"};
+link0[] = {0,1};
+link1[] = {1,2};
+link2[] = {2,3};
+link3[] = {3,4};
+link4[] = {4,6};
+link5[] = {5,7};
+link6[] = {6,5};
+link7[] = {7,8};
+globals[] = {0.000000,0,0,0,0,640,480,1,16,6316128,1,-1121.218628,291.100708,925.217041,-224.603149,1528,1244,1};
+window[] = {2,-1,-1,-32000,-32000,956,208,1648,196,3,1546};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "AAA";
+        class States
+        {
+                /*%FSM<STATE "Init_">*/
+                class Init_
+                {
+                        name = "Init_";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"_start_time = time;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "AAA">*/
+                                class AAA
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="find_positions";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "find_positions">*/
+                class find_positions
+                {
+                        name = "find_positions";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/"_aaa_posistions = [];" \n
+                         "for ""_i"" from 0 to 10 do {" \n
+                         "_x = [""land2"", true, 10] call AW_fnc_findSpace;" \n
+                         "_aaa_posistions pushback _x;" \n
+                         "}; "/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "wait_for__posistions">*/
+                                class wait_for__posistions
+                                {
+                                        itemno = 3;
+                                        priority = 0.000000;
+                                        to="spawn_emplacemen";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!isNil ""_aaa_posistions"""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "spawn_emplacemen">*/
+                class spawn_emplacemen
+                {
+                        name = "spawn_emplacemen";
+                        itemno = 4;
+                        init = /*%FSM<STATEINIT""">*/"{" \n
+                         "[_x] call AW_fnc_createAAA;" \n
+                         "} forEach _aaa_posistions"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 6;
+                                        priority = 0.000000;
+                                        to="anchor___wait";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "anchor___wait">*/
+                class anchor___wait
+                {
+                        name = "anchor___wait";
+                        itemno = 5;
+                        init = /*%FSM<STATEINIT""">*/"_timeout = (time + 1 + (random 5));" \n
+                         "//DEBUG " \n
+                         "hint ""AAA spawned"";"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 7;
+                                        priority = 0.000000;
+                                        to="End";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time >= _timeout"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "End">*/
+                class End
+                {
+                        name = "End";
+                        itemno = 8;
+                        init = /*%FSM<STATEINIT""">*/"_end_time = time - _start_time;" \n
+                         "_text1 = ""<t color='#FFFF66' size='1.0' shadow='1' shadowColor='#333333' align='left'>Emplacements Initialised</t>"";" \n
+                         "_text2 = ""<t color='#CCCCCC' size='1.0' shadow='1' shadowColor='#333333' align='left' font='PuristaMedium'><br/>"";" \n
+                         "_hint = (_text1 + _text2 + format[""Required time: %1 sec."",_end_time]);" \n
+                         "hintSilent parseText _hint;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="Init_";
+        finalStates[] =
+        {
+                "End",
+        };
+};
+/*%FSM</COMPILE>*/

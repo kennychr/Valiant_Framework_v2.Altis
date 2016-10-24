@@ -1,0 +1,205 @@
+/*%FSM<COMPILE "D:\SteamLibrary\SteamApps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, ambient_heli">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Init",0,250,-46.481819,-134.849899,43.518181,-84.849899,0.000000,"Init"};
+item1[] = {"True",8,218,82.408203,-135.986420,172.408203,-85.986420,0.000000,"True"};
+item2[] = {"Spawn_Chopper",2,4346,209.437286,-136.326965,299.437317,-86.326965,0.000000,"Spawn" \n "Chopper"};
+item3[] = {"Chopper_Restart",4,218,210.855560,-57.699615,300.855560,-7.699615,0.000000,"Chopper" \n "Restart Time"};
+item4[] = {"Chopper_Return",2,250,209.438049,21.012085,299.438049,71.012085,0.000000,"Chopper" \n "Return"};
+item5[] = {"Chopper_Down_Tim",4,218,341.091431,21.117432,431.091431,71.117432,0.000000,"Chopper" \n "Down" \n "Time"};
+item6[] = {"Damage_Chopper",2,250,339.834320,-49.109497,429.834320,0.890503,0.000000,"Damage" \n "Chopper"};
+item7[] = {"Chopper_Delete_Time",4,218,339.851685,-134.304733,429.851685,-84.304733,0.000000,"Chopper" \n "Delete" \n "Time?"};
+item8[] = {"Delete_Chopper",2,250,340.824097,-201.934097,430.824097,-151.934097,0.000000,"Delete" \n "Chopper"};
+item9[] = {"True",8,218,209.406250,-201.934097,299.406250,-151.934097,0.000000,"True"};
+link0[] = {0,1};
+link1[] = {1,2};
+link2[] = {2,3};
+link3[] = {3,4};
+link4[] = {4,5};
+link5[] = {5,6};
+link6[] = {6,7};
+link7[] = {7,8};
+link8[] = {8,9};
+link9[] = {9,2};
+globals[] = {0.000000,0,0,0,0,640,480,1,13,6316128,1,-119.757957,605.997437,144.824814,-310.366455,1575,1244,1};
+window[] = {2,-1,-1,-1,-1,1226,234,2043,234,3,1593};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "ambient_heli";
+        class States
+        {
+                /*%FSM<STATE "Init">*/
+                class Init
+                {
+                        name = "Init";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"_chopperAlive = 2700 + (random 900);" \n
+                         "_chopperReturn = 200;" \n
+                         "_chopperDown = 100;" \n
+                         "_start_time = time;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "True">*/
+                                class True
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="Spawn_Chopper";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Spawn_Chopper">*/
+                class Spawn_Chopper
+                {
+                        name = "Spawn_Chopper";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/"_end_time = time - _start_time;" \n
+                         "_text1 = ""<t color='#FFFF66' size='1.0' shadow='1' shadowColor='#333333' align='left'>Ambient Heli's Initialised</t>"";" \n
+                         "_text2 = ""<t color='#CCCCCC' size='1.0' shadow='1' shadowColor='#333333' align='left' font='PuristaMedium'><br/>"";" \n
+                         "_hint = (_text1 + _text2 + format[""Required time: %1 sec."",_end_time]);" \n
+                         "hintSilent parseText _hint;" \n
+                         "" \n
+                         "_heliPool = [" \n
+                         "	""RHS_Ka52_vvs""," \n
+                         "	""RHS_Ka52_UPK23_vvsc""," \n
+                         "	""RHS_Ka52_UPK23_vvs""," \n
+                         "	""RHS_Mi24P_AT_vvsc""," \n
+                         "	""RHS_Mi24P_CAS_vvsc""," \n
+                         "	""RHS_Mi24P_vvsc""," \n
+                         "	""RHS_Mi24V_AT_vvsc""," \n
+                         "	""RHS_Mi24V_vvsc""," \n
+                         "	""RHS_Mi24V_FAB_vvsc""," \n
+                         "	""RHS_Mi24V_UPK23_vvsc""," \n
+                         "	""RHS_Mi8AMTSh_vvsc""," \n
+                         "	""RHS_Mi8AMTSh_FAB_vvsc""," \n
+                         "	""RHS_Mi8AMTSh_UPK23_vvsc""," \n
+                         "	""RHS_Mi8MTV3_vvsc""," \n
+                         "	""RHS_Mi8MTV3_FAB_vvsc""," \n
+                         "	""RHS_Mi8MTV3_UPK23_vvsc""" \n
+                         "];" \n
+                         "" \n
+                         "_heli = _heliPool call BIS_Fnc_selectRandom;" \n
+                         "_heliGrp = createGroup east;" \n
+                         "_ambientHeli = createVehicle [_heli, getMarkerPos ""Heli_Spawn"", [], 0, ""FLY"" ];" \n
+                         "[_ambientHeli,_heliGrp] call BIS_fnc_spawnCrew;" \n
+                         "" \n
+                         "	for ""_i"" from 1 to 15 do{" \n
+                         "		_wpPos =  [""center"", 4000] call CBA_fnc_randPos;" \n
+                         "		_heliWp = _heliGrp addWaypoint [_wpPos,0];" \n
+                         "		_heliWp setWaypointType ""MOVE"";" \n
+                         "		_heliWp setWaypointCompletionRadius 50;" \n
+                         "	};" \n
+                         "" \n
+                         "_wp = _heliGrp addwaypoint [getMarkerPos ""center"",0];" \n
+                         "_wp setWaypointType ""CYCLE"";" \n
+                         "" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Chopper_Restart">*/
+                                class Chopper_Restart
+                                {
+                                        itemno = 3;
+                                        priority = 0.000000;
+                                        to="Chopper_Return";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time >= _chopperAlive;"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Chopper_Return">*/
+                class Chopper_Return
+                {
+                        name = "Chopper_Return";
+                        itemno = 4;
+                        init = /*%FSM<STATEINIT""">*/"while {(count (waypoints _heliGrp)) > 0} do {" \n
+                         "	deleteWaypoint ((waypoints _heliGrp) select 0);" \n
+                         "};" \n
+                         "_returnWP = _heliGrp addwaypoint [getMarkerPos ""Heli_Spawn"",0];" \n
+                         "" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Chopper_Down_Tim">*/
+                                class Chopper_Down_Tim
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="Damage_Chopper";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time >= _chopperReturn;"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Damage_Chopper">*/
+                class Damage_Chopper
+                {
+                        name = "Damage_Chopper";
+                        itemno = 6;
+                        init = /*%FSM<STATEINIT""">*/"_ambientHeli setDamage .90;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Chopper_Delete_Time">*/
+                                class Chopper_Delete_Time
+                                {
+                                        itemno = 7;
+                                        priority = 0.000000;
+                                        to="Delete_Chopper";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time >= _chopperDown;"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Delete_Chopper">*/
+                class Delete_Chopper
+                {
+                        name = "Delete_Chopper";
+                        itemno = 8;
+                        init = /*%FSM<STATEINIT""">*/"deleteVehicle _ambientHeli;" \n
+                         "{deleteVehicle _x} forEach units _heliGrp;" \n
+                         "deleteGroup _heliGrp;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "True">*/
+                                class True
+                                {
+                                        itemno = 9;
+                                        priority = 0.000000;
+                                        to="Spawn_Chopper";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="Init";
+        finalStates[] =
+        {
+        };
+};
+/*%FSM</COMPILE>*/

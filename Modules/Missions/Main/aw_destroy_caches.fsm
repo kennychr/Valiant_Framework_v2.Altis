@@ -1,0 +1,167 @@
+/*%FSM<COMPILE "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, aw_cacheHunt">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Init_",0,250,-39.529572,824.405029,50.470428,874.405029,0.000000,"Init" \n ""};
+item1[] = {"town_found_",4,218,-40.213409,898.950317,49.786591,948.950256,0.000000,"town found?"};
+item2[] = {"spawn_caches___e",2,250,-39.529541,976.231140,50.470474,1026.231323,0.000000,"spawn caches" \n "+ enemies"};
+item3[] = {"_",8,218,-38.845650,1054.195679,51.154358,1104.195679,0.000000,""};
+item4[] = {"set_timeout",2,250,-38.845646,1133.528198,51.154373,1183.528198,0.000000,"set timeout"};
+item5[] = {"ready_to_check",4,218,-38.845650,1210.125122,51.154358,1260.125122,0.000000,"ready to check"};
+item6[] = {"caches_cleared_",2,250,-37.477848,1299.716064,52.522171,1349.716064,0.000000,"caches cleared ? "};
+item7[] = {"yes",4,4314,-38.161751,1367.422241,51.838257,1417.422241,0.000000,"yes"};
+item8[] = {"no",8,218,73.997986,1208.757202,163.997986,1258.757202,0.000000,"no"};
+item9[] = {"",7,210,114.314117,1153.844238,122.314117,1161.844238,0.000000,""};
+item10[] = {"",7,210,114.314117,1320.716064,122.314117,1328.716064,0.000000,""};
+item11[] = {"_",1,250,-38.161747,1467.955811,51.838287,1517.955811,0.000000,""};
+link0[] = {0,1};
+link1[] = {1,2};
+link2[] = {2,3};
+link3[] = {3,4};
+link4[] = {4,5};
+link5[] = {5,6};
+link6[] = {6,7};
+link7[] = {6,10};
+link8[] = {7,11};
+link9[] = {8,9};
+link10[] = {9,4};
+link11[] = {10,8};
+globals[] = {0.000000,0,0,0,0,640,480,1,13,6316128,1,-497.775208,497.773529,1566.453857,465.598267,1125,1244,1};
+window[] = {2,-1,-1,-1,-1,1211,182,2102,182,3,1143};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "aw_cacheHunt";
+        class States
+        {
+                /*%FSM<STATE "Init_">*/
+                class Init_
+                {
+                        name = "Init_";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"diag_log [""AW_MISSIONLOGGING--->  aw_cacheHunt:INIT""];" \n
+                         "_town =  call AW_fnc_findTown;" \n
+                         "_townPos = getPos _town;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "town_found_">*/
+                                class town_found_
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="spawn_caches___e";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!isNil ""_town"""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"diag_log [""AW_MISSIONLOGGING--->  aw_cacheHunt:Town found""];"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "spawn_caches___e">*/
+                class spawn_caches___e
+                {
+                        name = "spawn_caches___e";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/"_nCaches = [_town,""Box_FIA_Wps_F"",5,500] call AW_fnc_cachePlacer;" \n
+                         "_spawnedUnits = [EAST, 14, _townPos, 1500] call AW_fnc_spawnEnemy;" \n
+                         "[_spawnedUnits, [[""patrol"", true, 400]]] call AW_fnc_setBehaviour;" \n
+                         "hint format [""Number of caches spawned:%1"",_nCaches];" \n
+                         "_taskID = [""HUMINT reports 5 caches being stored in this town, destroy them"",""Destroy Caches"",""testWords"",_townPos,""ATTACK""] call AW_fnc_makeTask;" \n
+                         "diag_log [""AW_MISSIONLOGGING--->  aw_cacheHunt:Caches and enemies created""];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 3;
+                                        priority = 0.000000;
+                                        to="set_timeout";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"diag_log [""AW_MISSIONLOGGING--->  aw_cacheHunt:Entering monitoring loop""];"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "set_timeout">*/
+                class set_timeout
+                {
+                        name = "set_timeout";
+                        itemno = 4;
+                        init = /*%FSM<STATEINIT""">*/"_timeout = (time + 5 + (random 20));"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "ready_to_check">*/
+                                class ready_to_check
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="caches_cleared_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time >= _timeout"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "caches_cleared_">*/
+                class caches_cleared_
+                {
+                        name = "caches_cleared_";
+                        itemno = 6;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "no">*/
+                                class no
+                                {
+                                        itemno = 8;
+                                        priority = 0.000000;
+                                        to="set_timeout";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "yes">*/
+                                class yes
+                                {
+                                        itemno = 7;
+                                        priority = 0.000000;
+                                        to="_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_nCaches == 0"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"MAINFSM setFSMVariable [""_main_complete"", 1];" \n
+                                         "[_taskID,""SUCCEEDED""] call BIS_fnc_taskSetState;" \n
+                                         "_spawnedUnits call AW_fnc_collectGarbage;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "_">*/
+                class _
+                {
+                        name = "_";
+                        itemno = 11;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="Init_";
+        finalStates[] =
+        {
+                "_",
+        };
+};
+/*%FSM</COMPILE>*/

@@ -1,0 +1,381 @@
+/*%FSM<COMPILE "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, aw_downloadUAV">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"init",0,250,372.553131,396.717163,462.553131,446.717163,0.000000,"init"};
+item1[] = {"pos_found__",4,218,372.362091,485.996338,462.362091,535.996338,0.000000,"pos found ?"};
+item2[] = {"spawn_uav___attach",2,250,371.636261,609.390320,461.636292,659.390320,0.000000,"spawn uav," \n " attach" \n "download to it."};
+item3[] = {"wait__",4,218,372.362122,711.008911,462.362122,761.008911,0.000000,"wait.."};
+item4[] = {"tasking_",2,250,371.636230,781.416016,461.636230,831.416016,0.000000,"tasking" \n ""};
+item5[] = {"_",8,218,487.046021,780.690186,577.046021,830.690186,0.000000,""};
+item6[] = {"detect_blufor_ne",2,250,607.536499,781.416260,697.536499,831.416260,0.000000,"detect blufor" \n "nearing"};
+item7[] = {"__isnil_blufor",4,218,725.123779,782.141968,815.123779,832.141968,0.000000,"!isnil" \n "blufor"};
+item8[] = {"in_comes_the_mi8s",2,250,868.114136,782.867065,958.114136,832.867065,0.000000,"in comes the" \n "mi8s yo!" \n "+mech"};
+item9[] = {"_",4,218,978.006592,781.777405,1068.006592,831.777405,0.000000,""};
+item10[] = {"define_check_uav",2,250,1108.005615,781.124207,1198.005737,831.124207,0.000000,"define" \n "check" \n "uav"};
+item11[] = {"time__to_check_",4,218,1107.350952,854.288757,1197.350952,904.288757,0.000000,"time " \n "to check?"};
+item12[] = {"uav_dead___",2,250,1108.004517,930.066650,1198.004517,980.066650,0.000000,"uav dead?" \n " "};
+item13[] = {"no",8,218,1207.748779,853.490601,1297.748779,903.490601,0.000000,"no"};
+item14[] = {"dead",4,218,1037.429810,1024.805054,1127.429810,1074.805054,1.000000,"dead"};
+item15[] = {"",7,210,1249.190430,801.603821,1257.190430,809.603821,0.000000,""};
+item16[] = {"",7,210,1249.190552,951.056763,1257.190552,959.056763,0.000000,""};
+item17[] = {"",7,210,1078.564697,989.043823,1086.564697,997.043823,0.000000,""};
+item18[] = {"update_task___cl",2,250,937.031738,1211.165649,1027.031372,1261.165649,0.000000,"update task" \n "+" \n "cleanup"};
+item19[] = {"End_Machine",1,4346,1029.050049,1381.696411,1119.050171,1431.696411,0.000000,"End" \n "Machine"};
+item20[] = {"anchor",2,250,1037.232910,1084.315186,1127.232910,1134.315186,0.000000,"anchor"};
+item21[] = {"intel__dl",4,218,937.151306,1130.194580,1027.151367,1180.194580,0.000000,"intel" \n "!dl"};
+item22[] = {"intel_dl",4,218,1127.950073,1135.097168,1217.950073,1185.097168,0.000000,"intel" \n "dl"};
+item23[] = {"update_task___cl_1",2,250,1126.615723,1211.045776,1216.615479,1261.045776,0.000000,"update task" \n "+" \n "cleanup"};
+item24[] = {"_",8,218,936.655029,1269.694092,1026.655273,1319.694092,0.000000,""};
+item25[] = {"_",8,218,1125.165649,1271.176514,1215.165649,1321.176514,0.000000,""};
+link0[] = {0,1};
+link1[] = {1,2};
+link2[] = {2,3};
+link3[] = {3,4};
+link4[] = {4,5};
+link5[] = {5,6};
+link6[] = {6,7};
+link7[] = {7,8};
+link8[] = {8,9};
+link9[] = {9,10};
+link10[] = {10,11};
+link11[] = {11,12};
+link12[] = {12,16};
+link13[] = {12,17};
+link14[] = {13,15};
+link15[] = {14,20};
+link16[] = {15,10};
+link17[] = {16,13};
+link18[] = {17,14};
+link19[] = {18,24};
+link20[] = {20,21};
+link21[] = {20,22};
+link22[] = {21,18};
+link23[] = {22,23};
+link24[] = {23,25};
+link25[] = {24,19};
+link26[] = {25,19};
+globals[] = {0.000000,0,0,0,0,640,480,1,34,6316128,1,190.768341,1345.579834,1498.537842,229.469482,1132,1284,1};
+window[] = {2,-1,-1,-1,-1,1159,-2430,-510,130,3,1150};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "aw_downloadUAV";
+        class States
+        {
+                /*%FSM<STATE "init">*/
+                class init
+                {
+                        name = "init";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"//Define Uav vars" \n
+                         "intel_downloaded = 0; publicVariable ""intel_downloaded"";" \n
+                         "BLU_Present = 0;" \n
+                         "_uavPos =nil;" \n
+                         "//Find pos for UAV" \n
+                         "_uavPos = [""land2"", true, 10] call AW_fnc_findSpace;" \n
+                         "// [5, [], {Hint ""Finished!""}, {hint ""Failure!""}, ""My Title""] call ace_common_fnc_progressBar" \n
+                         "//Get Units used from param var" \n
+                         "_DACUnits = AW_UNITS;" \n
+                         "" \n
+                         "" \n
+                         "diag_log [""AW_MISSIONLOGGING--->  aw_downloadUAV:INIT""];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "pos_found__">*/
+                                class pos_found__
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="spawn_uav___attach";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!isNil ""_uavPos"""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"diag_log [""AW_MISSIONLOGGING--->  aw_downloadUAV:Position found""];"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "spawn_uav___attach">*/
+                class spawn_uav___attach
+                {
+                        name = "spawn_uav___attach";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/"_uav_vic = createVehicle [""B_UAV_02_F"",_uavPos, [], 1, ""NONE"" ];" \n
+                         " [_uav_vic,[""Download Intel"", ""scripts\ace_intel.sqf"",1,0,false]] remoteExec [""addAction"",0,TRUE];" \n
+                         "_timeout = (time + 5 + (random 10));" \n
+                         "" \n
+                         "" \n
+                         "diag_log [""AW_MISSIONLOGGING--->  aw_downloadUAV:UAV spawned,attaching addAction to it""];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "wait__">*/
+                                class wait__
+                                {
+                                        itemno = 3;
+                                        priority = 0.000000;
+                                        to="tasking_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time >= _timeout"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "tasking_">*/
+                class tasking_
+                {
+                        name = "tasking_";
+                        itemno = 4;
+                        init = /*%FSM<STATEINIT""">*/"//Task" \n
+                         "_taskID = [""A UAV has crashlanded, it has valuable intel store on its SSD,download it asap and destroy the remains"",""Download Intel"",""testWords"",_uavPos,""Interact""] call AW_fnc_makeTask;" \n
+                         "" \n
+                         "diag_log [""AW_MISSIONLOGGING--->  aw_downloadUAV:Making task""];" \n
+                         "" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="detect_blufor_ne";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "detect_blufor_ne">*/
+                class detect_blufor_ne
+                {
+                        name = "detect_blufor_ne";
+                        itemno = 6;
+                        init = /*%FSM<STATEINIT""">*/"_trg = createTrigger [""EmptyDetector"",getPos _uav_vic];" \n
+                         "_trg setTriggerArea [250,250,0,false];" \n
+                         "_trg setTriggerActivation [""WEST"",""PRESENT"", false];" \n
+                         "_trg setTriggerStatements [""this"",""BLU_Present = 1;"",""""];" \n
+                         "" \n
+                         "" \n
+                         "diag_log [""AW_MISSIONLOGGING--->  aw_downloadUAV:Creating trigger for monitoring dist of BLUFOR to uav""];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "__isnil_blufor">*/
+                                class __isnil_blufor
+                                {
+                                        itemno = 7;
+                                        priority = 0.000000;
+                                        to="in_comes_the_mi8s";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"BLU_Present == 1;"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"//DEBUG" \n
+                                         "hint ""Players near uav"";"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "in_comes_the_mi8s">*/
+                class in_comes_the_mi8s
+                {
+                        name = "in_comes_the_mi8s";
+                        itemno = 8;
+                        init = /*%FSM<STATEINIT""">*/"//DEBUG" \n
+                         "[_uavPos] call AW_fnc_reinforceChopper;" \n
+                         "[_uavPos] call AW_fnc_reinforceMechanized;" \n
+                         "" \n
+                         "" \n
+                         "diag_log [""AW_MISSIONLOGGING--->  aw_downloadUAV:Blufor close, calling: fnc_reinforceChopper,fnc_reinforceMechanized""];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 9;
+                                        priority = 0.000000;
+                                        to="define_check_uav";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "define_check_uav">*/
+                class define_check_uav
+                {
+                        name = "define_check_uav";
+                        itemno = 10;
+                        init = /*%FSM<STATEINIT""">*/"_timeout = (time + 5 + (random 10));"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "time__to_check_">*/
+                                class time__to_check_
+                                {
+                                        itemno = 11;
+                                        priority = 0.000000;
+                                        to="uav_dead___";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time >= _timeout"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "uav_dead___">*/
+                class uav_dead___
+                {
+                        name = "uav_dead___";
+                        itemno = 12;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "dead">*/
+                                class dead
+                                {
+                                        itemno = 14;
+                                        priority = 1.000000;
+                                        to="anchor";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!alive _uav_vic"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"diag_log [""AW_MISSIONLOGGING--->  aw_downloadUAV:UAV dead, preceeding to check if intel was downloaded or not""];"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "no">*/
+                                class no
+                                {
+                                        itemno = 13;
+                                        priority = 0.000000;
+                                        to="define_check_uav";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "update_task___cl">*/
+                class update_task___cl
+                {
+                        name = "update_task___cl";
+                        itemno = 18;
+                        init = /*%FSM<STATEINIT""">*/"[_taskID,""FAILED""] call BIS_fnc_taskSetState;" \n
+                         "MAINFSM setFSMVariable [""_main_complete"", 1];" \n
+                         "deleteVehicle _uav_vic;" \n
+                         "deleteVehicle _reinforcementChopper;" \n
+                         "" \n
+                         "" \n
+                         "diag_log [""AW_MISSIONLOGGING--->  aw_downloadUAV:Cleanup,task updated,MAINFSM var sent""];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 24;
+                                        priority = 0.000000;
+                                        to="End_Machine";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "End_Machine">*/
+                class End_Machine
+                {
+                        name = "End_Machine";
+                        itemno = 19;
+                        init = /*%FSM<STATEINIT""">*/"diag_log [""AW_MISSIONLOGGING--->  aw_downloadUAV:FSM Exit""];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "anchor">*/
+                class anchor
+                {
+                        name = "anchor";
+                        itemno = 20;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "intel_dl">*/
+                                class intel_dl
+                                {
+                                        itemno = 22;
+                                        priority = 0.000000;
+                                        to="update_task___cl_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"intel_downloaded == 1;"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"diag_log [""AW_MISSIONLOGGING--->  aw_downloadUAV:Intel downloaded""];"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "intel__dl">*/
+                                class intel__dl
+                                {
+                                        itemno = 21;
+                                        priority = 0.000000;
+                                        to="update_task___cl";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"intel_downloaded == 0;"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"diag_log [""AW_MISSIONLOGGING--->  aw_downloadUAV:Intel not downloaded""];"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "update_task___cl_1">*/
+                class update_task___cl_1
+                {
+                        name = "update_task___cl_1";
+                        itemno = 23;
+                        init = /*%FSM<STATEINIT""">*/"[_taskID,""SUCCEEDED""] call BIS_fnc_taskSetState;" \n
+                         "MAINFSM setFSMVariable [""_main_complete"", 1];" \n
+                         "deleteVehicle _uav_vic;" \n
+                         "deleteVehicle _reinforcementChopper;" \n
+                         "" \n
+                         "" \n
+                         "diag_log [""AW_MISSIONLOGGING--->  aw_downloadUAV:Cleanup,task updated,MAINFSM var sent""];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 25;
+                                        priority = 0.000000;
+                                        to="End_Machine";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="init";
+        finalStates[] =
+        {
+                "End_Machine",
+        };
+};
+/*%FSM</COMPILE>*/

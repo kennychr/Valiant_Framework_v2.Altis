@@ -1,0 +1,211 @@
+/*%FSM<COMPILE "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, Side">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"init",0,250,286.647400,-548.960632,376.647400,-498.960632,0.000000,"init"};
+item1[] = {"wait__for_dac",4,218,400.441895,-550.851868,490.441895,-500.851898,0.000000,"wait  for" \n "dac"};
+item2[] = {"get_side_mission",2,250,509.925598,-551.477478,599.925598,-501.477478,0.000000,"get side" \n "mission"};
+item3[] = {"waaait",4,218,617.532288,-553.354309,707.532288,-503.354340,0.000000,"waaait"};
+item4[] = {"run_side_fsm",2,4346,762.676270,-553.979980,852.676270,-503.979980,0.000000,"run side" \n "fsm"};
+item5[] = {"waait",4,218,880.293030,-554.605530,970.293030,-504.605499,0.000000,"waait"};
+item6[] = {"define_monitor_t",2,250,880.918640,-629.054443,970.918640,-579.054443,0.000000,"define" \n "monitor" \n "time"};
+item7[] = {"time_to__check_",4,218,880.292969,-701.296021,970.292969,-651.296021,0.000000,"time" \n "to " \n "check? "};
+item8[] = {"side_finished_",2,250,880.292969,-770.739868,970.292969,-720.739868,0.000000,"side" \n "finished?"};
+item9[] = {"no",8,218,980.392700,-701.295837,1070.392700,-651.295837,0.000000,"no"};
+item10[] = {"",7,210,1022.018188,-608.975159,1030.018188,-600.975159,0.000000,""};
+item11[] = {"",7,210,1022.018127,-750.365356,1030.018066,-742.365356,0.000000,""};
+item12[] = {"yes",4,218,735.774841,-771.365417,825.774841,-721.365479,0.000000,"yes"};
+item13[] = {"waaitdef",2,250,630.045227,-769.488403,720.045227,-719.488403,0.000000,"waaitdef"};
+item14[] = {"wait",4,218,523.064026,-770.739624,613.064026,-720.739624,0.000000,"wait"};
+link0[] = {0,1};
+link1[] = {1,2};
+link2[] = {2,3};
+link3[] = {3,4};
+link4[] = {4,5};
+link5[] = {5,6};
+link6[] = {6,7};
+link7[] = {7,8};
+link8[] = {8,11};
+link9[] = {8,12};
+link10[] = {9,10};
+link11[] = {10,6};
+link12[] = {11,9};
+link13[] = {12,13};
+link14[] = {13,14};
+link15[] = {14,2};
+globals[] = {0.000000,0,0,0,0,640,480,1,16,6316128,1,163.287125,1137.379272,-191.439941,-969.712036,1557,1244,1};
+window[] = {2,-1,-1,-1,-1,1289,260,2180,260,3,1575};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "Side";
+        class States
+        {
+                /*%FSM<STATE "init">*/
+                class init
+                {
+                        name = "init";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"_sideMissions =(missionconfigfile >> ""AW_Mission_Machine"" >> ""Missions"" >> ""Side"" >> ""Side_Array"") call BIS_fnc_getCfgData;" \n
+                         "_timeout = (time + 1 + (random 4));"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "wait__for_dac">*/
+                                class wait__for_dac
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="get_side_mission";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "get_side_mission">*/
+                class get_side_mission
+                {
+                        name = "get_side_mission";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/"//Select from mainArray" \n
+                         "_sideMission = _sideMissions call BIS_fnc_selectRandom;" \n
+                         "" \n
+                         "//Spawn players?" \n
+                         "" \n
+                         "//Set Timeout to wait" \n
+                         "_timeout = (time + 5 + (random 20));" \n
+                         "" \n
+                         "//Set No Active missions" \n
+                         "_side_complete = 0;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "waaait">*/
+                                class waaait
+                                {
+                                        itemno = 3;
+                                        priority = 0.000000;
+                                        to="run_side_fsm";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time >= _timeout"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "run_side_fsm">*/
+                class run_side_fsm
+                {
+                        name = "run_side_fsm";
+                        itemno = 4;
+                        init = /*%FSM<STATEINIT""">*/"fsmHandleSide = execFSM format [""Modules\Missions\Side\%1.fsm"",_sideMission];" \n
+                         "publicVariable ""fsmHandleSide"";" \n
+                         "_timeout = (time + 5 + (random 5));"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "waait">*/
+                                class waait
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="define_monitor_t";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "define_monitor_t">*/
+                class define_monitor_t
+                {
+                        name = "define_monitor_t";
+                        itemno = 6;
+                        init = /*%FSM<STATEINIT""">*/"_timeout = (time + 20 + (random 5));" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "time_to__check_">*/
+                                class time_to__check_
+                                {
+                                        itemno = 7;
+                                        priority = 0.000000;
+                                        to="side_finished_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "side_finished_">*/
+                class side_finished_
+                {
+                        name = "side_finished_";
+                        itemno = 8;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "no">*/
+                                class no
+                                {
+                                        itemno = 9;
+                                        priority = 0.000000;
+                                        to="define_monitor_t";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "yes">*/
+                                class yes
+                                {
+                                        itemno = 12;
+                                        priority = 0.000000;
+                                        to="waaitdef";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_side_complete == 1"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "waaitdef">*/
+                class waaitdef
+                {
+                        name = "waaitdef";
+                        itemno = 13;
+                        init = /*%FSM<STATEINIT""">*/"_timeout = (time + 5 + (random 20));"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "wait">*/
+                                class wait
+                                {
+                                        itemno = 14;
+                                        priority = 0.000000;
+                                        to="get_side_mission";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time >= _timeout"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="init";
+        finalStates[] =
+        {
+        };
+};
+/*%FSM</COMPILE>*/

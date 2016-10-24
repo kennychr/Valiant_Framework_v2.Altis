@@ -1,0 +1,215 @@
+/*%FSM<COMPILE "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, aw_defuseMinefield">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"init_",0,250,146.455261,289.031708,236.455261,339.031708,0.000000,"init" \n ""};
+item1[] = {"wait_for__field",4,218,146.455322,367.773926,236.455322,417.773926,0.000000,"wait for " \n "field pos" \n ""};
+item2[] = {"Spawn_Minefield",2,250,147.392731,454.953003,237.392746,504.953003,0.000000,"Spawn Minefield"};
+item3[] = {"some_mine__spawned",4,218,146.231232,531.820374,236.231232,581.820374,0.000000,"some mine" \n " spawned?"};
+item4[] = {"spawn_some__perimiter",2,4346,146.231232,606.812988,236.231247,656.812988,0.000000,"spawn some" \n " perimiter defense" \n "+Suprise"};
+item5[] = {"ready_for__monitoring",8,218,146.280914,694.833984,236.280914,744.833984,0.000000,"ready for " \n "monitoring" \n ""};
+item6[] = {"set_timeout",2,250,147.107330,770.040466,237.107346,820.040466,0.000000,"set timeout"};
+item7[] = {"time_to__monitor",4,218,147.107300,847.726318,237.107300,897.726318,0.000000,"time to" \n " monitor"};
+item8[] = {"dead_mines_civs",2,250,146.280853,929.544495,236.280869,979.544495,0.000000,"dead mines\civs?"};
+item9[] = {"dead_mines",4,218,145.454468,1007.230225,235.454468,1057.230225,0.000000,"dead mines"};
+item10[] = {"no",8,218,283.470825,845.247131,373.470825,895.247131,0.000000,"no"};
+item11[] = {"",7,210,325.297302,950.544556,333.297302,958.544556,0.000000,""};
+item12[] = {"",7,210,325.297272,791.866882,333.297272,799.866882,0.000000,""};
+item13[] = {"fail",1,250,146.280914,1105.577393,236.280945,1155.577393,0.000000,"fail"};
+link0[] = {0,1};
+link1[] = {1,2};
+link2[] = {2,3};
+link3[] = {3,4};
+link4[] = {4,5};
+link5[] = {5,6};
+link6[] = {6,7};
+link7[] = {7,8};
+link8[] = {8,9};
+link9[] = {8,11};
+link10[] = {9,13};
+link11[] = {10,12};
+link12[] = {11,10};
+link13[] = {12,6};
+globals[] = {0.000000,0,0,0,0,640,480,1,19,6316128,1,-238.593155,607.931458,1011.972412,142.102448,834,857,1};
+window[] = {0,-1,-1,-1,-1,1081,-2508,-588,52,1,852};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "aw_defuseMinefield";
+        class States
+        {
+                /*%FSM<STATE "init_">*/
+                class init_
+                {
+                        name = "init_";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"_field_pos = nil;" \n
+                         "_field_pos = [""land2"",true,50] call AW_fnc_findSpace;" \n
+                         "" \n
+                         "" \n
+                         "" \n
+                         "diag_log [""AW_MISSIONLOGGING---> aw_defuseMinefield:INIT""];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "wait_for__field">*/
+                                class wait_for__field
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="Spawn_Minefield";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!isNil ""_field_pos"""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Spawn_Minefield">*/
+                class Spawn_Minefield
+                {
+                        name = "Spawn_Minefield";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/"_mine_1 = createMine [""APERSBoundingMine"", _field_pos, [], 50];" \n
+                         "_mine_2 = createMine [""APERSBoundingMine"", _field_pos, [], 50];" \n
+                         "_mine_3 = createMine [""APERSBoundingMine"", _field_pos, [], 50];" \n
+                         "_mine_4 = createMine [""APERSBoundingMine"", _field_pos, [], 50];" \n
+                         "_mine_5 = createMine [""APERSBoundingMine"", _field_pos, [], 50];" \n
+                         "_mine_6 = createMine [""APERSBoundingMine"", _field_pos, [], 50];" \n
+                         "_mine_7 = createMine [""APERSBoundingMine"", _field_pos, [], 50];" \n
+                         "_mine_8 = createMine [""APERSBoundingMine"", _field_pos, [], 50];" \n
+                         "" \n
+                         "" \n
+                         "diag_log [""AW_MISSIONLOGGING---> aw_defuseMinefield: Mines spawned""];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "some_mine__spawned">*/
+                                class some_mine__spawned
+                                {
+                                        itemno = 3;
+                                        priority = 0.000000;
+                                        to="spawn_some__perimiter";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"alive _mine_4"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "spawn_some__perimiter">*/
+                class spawn_some__perimiter
+                {
+                        name = "spawn_some__perimiter";
+                        itemno = 4;
+                        init = /*%FSM<STATEINIT""">*/"_field_pos_rel_1 = _field_pos getPos [150,random 180];" \n
+                         "_field_pos_rel_2 = _field_pos getPos [150,random 180];" \n
+                         "_spawnedUnits_1 = [EAST, 3, _field_pos_rel_1, 40] call AW_fnc_spawnEnemy;" \n
+                         "_spawnedUnits_2 = [EAST, 3, _field_pos_rel_1, 40] call AW_fnc_spawnEnemy;" \n
+                         "" \n
+                         "[_spawnedUnits_1, [[""patrol"", _field_pos_rel_1, 70]]] call AW_fnc_setBehaviour;" \n
+                         "[_spawnedUnits_2, [[""patrol"", _field_pos_rel_2, 70]]] call AW_fnc_setBehaviour;" \n
+                         "" \n
+                         "" \n
+                         "" \n
+                         "" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "ready_for__monitoring">*/
+                                class ready_for__monitoring
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="set_timeout";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_taskID = [""OPFOR has setup a minefield,this needs EOD ASAP"",""EOD Mines"",""testWords"",_field_pos,""Destroy""] call AW_fnc_makeTask;" \n
+                                         "" \n
+                                         "diag_log [""AW_MISSIONLOGGING--->  aw_defuseMinefield:Tasked spawned,Entering monitor loop""];"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "set_timeout">*/
+                class set_timeout
+                {
+                        name = "set_timeout";
+                        itemno = 6;
+                        init = /*%FSM<STATEINIT""">*/"_timeout = (time + 5 + (random 10));"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "time_to__monitor">*/
+                                class time_to__monitor
+                                {
+                                        itemno = 7;
+                                        priority = 0.000000;
+                                        to="dead_mines_civs";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time >= _timeout"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "dead_mines_civs">*/
+                class dead_mines_civs
+                {
+                        name = "dead_mines_civs";
+                        itemno = 8;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "no">*/
+                                class no
+                                {
+                                        itemno = 10;
+                                        priority = 0.000000;
+                                        to="set_timeout";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "dead_mines">*/
+                                class dead_mines
+                                {
+                                        itemno = 9;
+                                        priority = 0.000000;
+                                        to="fail";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!alive _mine_5"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"[_taskID,""SUCCEEDED""] call BIS_fnc_taskSetState;" \n
+                                         "_spawnedUnits_1 call AW_fnc_collectGarbage;" \n
+                                         "_spawnedUnits_2 call AW_fnc_collectGarbage;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "fail">*/
+                class fail
+                {
+                        name = "fail";
+                        itemno = 13;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="init_";
+        finalStates[] =
+        {
+                "fail",
+        };
+};
+/*%FSM</COMPILE>*/

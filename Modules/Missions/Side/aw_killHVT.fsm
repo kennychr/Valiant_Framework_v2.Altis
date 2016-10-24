@@ -1,0 +1,168 @@
+/*%FSM<COMPILE "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, aw_killHVT">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"init_",0,250,-85.086212,-197.844833,4.913788,-147.844833,0.000000,"init" \n ""};
+item1[] = {"hvt_pos_found_",4,218,-85.433533,-116.140930,4.566467,-66.140930,0.000000,"hvt pos" \n "found?"};
+item2[] = {"create_HVT___guard",2,250,-85.433594,-17.523926,4.566422,32.476074,0.000000,"create HVT" \n "+ guard detail"};
+item3[] = {"time_to_monitor",8,218,-85.232185,60.103088,4.767822,110.103088,0.000000,"time to monitor"};
+item4[] = {"timeout",2,250,-85.232117,224.686462,4.767899,274.686462,0.000000,"timeout"};
+item5[] = {"checktime",4,218,-84.013008,319.779053,5.987000,369.779053,0.000000,"checktime"};
+item6[] = {"dead_hvt_",2,250,-82.793823,411.214172,7.206192,461.214172,0.000000,"dead hvt?"};
+item7[] = {"no",8,218,73.255547,320.998169,163.255554,370.998169,0.000000,"no"};
+item8[] = {"",7,210,115.474731,433.433411,123.474731,441.433411,0.000000,""};
+item9[] = {"",7,210,115.474731,246.905640,123.474731,254.905640,0.000000,""};
+item10[] = {"yes",4,4314,-83.955055,488.913757,6.044952,538.913757,0.000000,"yes"};
+item11[] = {"End",1,250,-83.611694,572.399536,6.388336,622.399536,0.000000,"End"};
+link0[] = {0,1};
+link1[] = {1,2};
+link2[] = {2,3};
+link3[] = {3,4};
+link4[] = {4,5};
+link5[] = {5,6};
+link6[] = {6,8};
+link7[] = {6,10};
+link8[] = {7,9};
+link9[] = {8,7};
+link10[] = {9,4};
+link11[] = {10,11};
+globals[] = {0.000000,0,0,0,0,640,480,1,14,6316128,1,-436.955139,436.953735,836.582764,-65.754395,830,857,1};
+window[] = {0,-1,-1,-1,-1,1107,78,1998,78,1,848};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "aw_killHVT";
+        class States
+        {
+                /*%FSM<STATE "init_">*/
+                class init_
+                {
+                        name = "init_";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"_hvt_pos = nil;" \n
+                         "_hvt_pos = [""land2"",true] call AW_fnc_findSpace;" \n
+                         "diag_log [""AW_MISSIONLOGGING--->  aw_killHVT:INIT""];" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "hvt_pos_found_">*/
+                                class hvt_pos_found_
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="create_HVT___guard";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!isNil ""_hvt_pos"""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "create_HVT___guard">*/
+                class create_HVT___guard
+                {
+                        name = "create_HVT___guard";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/"_hvt_grp = [_hvt_pos,EAST,(configfile >> ""CfgGroups"" >> ""East"" >> ""rhs_faction_vdv"" >> ""rhs_group_rus_vdv_infantry_recon"" >> ""rhs_group_rus_vdv_infantry_recon_chq"")] call BIS_fnc_spawnGroup;" \n
+                         "_hvt_officer = leader _hvt_grp;" \n
+                         "[_hvt_grp, [[""patrol"", true, 200]]] call AW_fnc_setBehaviour;" \n
+                         "_taskID = [""Opfor officers are surveying the area, take them out ASAP"",""Kill HVT"",""testWords"",_hvt_pos,""Destroy""] call AW_fnc_makeTask;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "time_to_monitor">*/
+                                class time_to_monitor
+                                {
+                                        itemno = 3;
+                                        priority = 0.000000;
+                                        to="timeout";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "timeout">*/
+                class timeout
+                {
+                        name = "timeout";
+                        itemno = 4;
+                        init = /*%FSM<STATEINIT""">*/"_timeout = (time + 5 + (random 10));" \n
+                         "" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "checktime">*/
+                                class checktime
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="dead_hvt_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time >= _timeout"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "dead_hvt_">*/
+                class dead_hvt_
+                {
+                        name = "dead_hvt_";
+                        itemno = 6;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "no">*/
+                                class no
+                                {
+                                        itemno = 7;
+                                        priority = 0.000000;
+                                        to="timeout";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "yes">*/
+                                class yes
+                                {
+                                        itemno = 10;
+                                        priority = 0.000000;
+                                        to="End";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!alive _hvt_officer"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"[_taskID,""SUCCEEDED""] call BIS_fnc_taskSetState;" \n
+                                         "_hvt_grp call AW_fnc_collectGarbage;" \n
+                                         "SIDEFSM setFSMVariable [""_side_complete"", 1];"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "End">*/
+                class End
+                {
+                        name = "End";
+                        itemno = 11;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="init_";
+        finalStates[] =
+        {
+                "End",
+        };
+};
+/*%FSM</COMPILE>*/

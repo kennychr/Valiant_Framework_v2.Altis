@@ -1,0 +1,214 @@
+/*%FSM<COMPILE "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, aw_capTown">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Init",0,250,334.626160,-123.057617,424.626160,-73.057625,0.000000,"Init"};
+item1[] = {"LETS_GO",8,218,335.216370,-47.219727,425.216370,2.780273,0.000000,"LETS GO"};
+item2[] = {"find_town_and_define",2,250,334.598145,34.350647,424.598145,84.350647,0.000000,"find town and" \n "define timeout"};
+item3[] = {"waaaait____",4,218,335.216339,103.593079,425.216339,153.593079,0.000000,"waaaait...."};
+item4[] = {"spawn_enemies_and",2,250,335.216400,179.017853,425.216431,229.017853,0.000000,"spawn enemies" \n "and trigger"};
+item5[] = {"_",8,218,335.834595,253.206177,425.834595,303.206177,0.000000,""};
+item6[] = {"set_timeout",2,250,335.216370,348.414551,425.216370,398.414551,0.000000,"set" \n "timeout"};
+item7[] = {"ready_to__check",4,218,334.598145,428.167023,424.598145,478.167023,0.000000,"ready to" \n " check ?"};
+item8[] = {"Enemies_dead__",2,250,333.979889,571.597717,423.979919,621.597717,0.000000,"Enemies" \n "dead ?"};
+item9[] = {"No",8,218,447.117096,428.167023,537.117249,478.167023,0.000000,"No"};
+item10[] = {"yes",4,4314,334.598083,651.350159,424.598083,701.350159,1.000000,"yes"};
+item11[] = {"",7,210,488.117065,591.361206,496.117065,599.361206,0.000000,""};
+item12[] = {"",7,210,487.498810,369.414551,495.498810,377.414551,0.000000,""};
+item13[] = {"End_Machine",1,250,335.216370,768.196777,425.216400,818.196777,0.000000,"End Machine"};
+link0[] = {0,1};
+link1[] = {1,2};
+link2[] = {2,3};
+link3[] = {3,4};
+link4[] = {4,5};
+link5[] = {5,6};
+link6[] = {6,7};
+link7[] = {7,8};
+link8[] = {8,10};
+link9[] = {8,11};
+link10[] = {9,12};
+link11[] = {10,13};
+link12[] = {11,9};
+link13[] = {12,6};
+globals[] = {0.000000,0,0,0,0,640,480,1,15,6316128,1,-118.826752,942.319153,945.844727,-257.787201,1132,1284,1};
+window[] = {2,-1,-1,-1,-1,1107,-2482,-562,78,3,1150};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "aw_capTown";
+        class States
+        {
+                /*%FSM<STATE "Init">*/
+                class Init
+                {
+                        name = "Init";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"//Get Units used from param var" \n
+                         "" \n
+                         "" \n
+                         "diag_log [""AW_MISSIONLOGGING--->  aw_captureTown:INIT""];" \n
+                         "" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "LETS_GO">*/
+                                class LETS_GO
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="find_town_and_define";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "find_town_and_define">*/
+                class find_town_and_define
+                {
+                        name = "find_town_and_define";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/"//_town = _towns call BIS_fnc_selectRandom;" \n
+                         "_townLoc = call AW_fnc_findTown;" \n
+                         "_missionLoc = getPos _townLoc;" \n
+                         "" \n
+                         "" \n
+                         "_timeout = (time + 5 + (random 10));" \n
+                         "" \n
+                         "" \n
+                         "diag_log [""AW_MISSIONLOGGING--->  aw_captureTown:finding loc of town""]"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "waaaait____">*/
+                                class waaaait____
+                                {
+                                        itemno = 3;
+                                        priority = 0.000000;
+                                        to="spawn_enemies_and";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time >= _timeout"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "spawn_enemies_and">*/
+                class spawn_enemies_and
+                {
+                        name = "spawn_enemies_and";
+                        itemno = 4;
+                        init = /*%FSM<STATEINIT""">*/"_spawnedUnits = [EAST, 25, _missionLoc, 500] call AW_fnc_spawnEnemy;" \n
+                         "[_spawnedUnits, [[""patrol"", true, 200]]] call AW_fnc_setBehaviour;" \n
+                         "" \n
+                         "_trg = createTrigger [""EmptyDetector"",_missionLoc];" \n
+                         "_trg setTriggerArea [500,500,0,false];" \n
+                         "_trg setTriggerActivation [""EAST"",""PRESENT"", false];" \n
+                         "_trg setTriggerStatements [""this"","""",""""];" \n
+                         "_taskID = [""A town has been occupied. Take it back"",""Capture Town"",""testWords"",_missionLoc,""ATTACK""] call AW_fnc_makeTask;" \n
+                         "" \n
+                         "" \n
+                         "diag_log [""AW_MISSIONLOGGING--->  aw_captureTown:Calling DAC,making trigger for monitoring count of EI units,making task""]" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="set_timeout";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"diag_log [""AW_MISSIONLOGGING--->  aw_captureTown:Entering monitor loop""];"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "set_timeout">*/
+                class set_timeout
+                {
+                        name = "set_timeout";
+                        itemno = 6;
+                        init = /*%FSM<STATEINIT""">*/"_timeout = (time + 5 + (random 20));"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "ready_to__check">*/
+                                class ready_to__check
+                                {
+                                        itemno = 7;
+                                        priority = 0.000000;
+                                        to="Enemies_dead__";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/"time >= _timeout"/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time >= _timeout"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Enemies_dead__">*/
+                class Enemies_dead__
+                {
+                        name = "Enemies_dead__";
+                        itemno = 8;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "yes">*/
+                                class yes
+                                {
+                                        itemno = 10;
+                                        priority = 1.000000;
+                                        to="End_Machine";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"count list _trg < 1"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"MAINFSM setFSMVariable [""_main_complete"", 1];" \n
+                                         "[_taskID,""SUCCEEDED""] call BIS_fnc_taskSetState;" \n
+                                         "_spawnedUnits call AW_fnc_collectGarbage;" \n
+                                         "" \n
+                                         "diag_log [""AW_MISSIONLOGGING--->  aw_captureTown:Town clear,running cleanup,updating task,MAINFSM var sent""]"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "No">*/
+                                class No
+                                {
+                                        itemno = 9;
+                                        priority = 0.000000;
+                                        to="set_timeout";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "End_Machine">*/
+                class End_Machine
+                {
+                        name = "End_Machine";
+                        itemno = 13;
+                        init = /*%FSM<STATEINIT""">*/"//DEBUG" \n
+                         "diag_log [""AW_MISSIONLOGGING--->  aw_captureTown:FSM Exit""];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="Init";
+        finalStates[] =
+        {
+                "End_Machine",
+        };
+};
+/*%FSM</COMPILE>*/

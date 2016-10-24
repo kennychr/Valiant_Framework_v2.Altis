@@ -1,0 +1,539 @@
+/*%FSM<COMPILE "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, aw_OfficerRescue">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Init",0,250,-50.552979,-104.951027,39.447021,-54.951035,0.000000,"Init"};
+item1[] = {"case_cup",4,218,-51.082764,-229.762177,38.917236,-179.762177,0.000000,"case cup"};
+item2[] = {"case_rhs",4,218,89.922913,-104.792389,179.922913,-54.792389,0.000000,"case rhs"};
+item3[] = {"case_vanilla",4,218,-50.529846,1.929657,39.470154,51.929657,0.000000,"case vanilla"};
+item4[] = {"Officer_cName_",2,250,215.031921,-228.994965,305.031921,-178.994965,0.000000,"Officer cName" \n ""};
+item5[] = {"Officer_cName__1",2,250,215.002563,-104.594177,305.002625,-54.594177,0.000000,"Officer cName" \n ""};
+item6[] = {"Officer_cName__2",2,250,218.996338,1.993225,308.996399,51.993225,0.000000,"Officer cName" \n ""};
+item7[] = {"Find_posistion_define",2,250,565.501648,-103.304138,655.501648,-53.304138,0.000000,"Find posistion" \n "define O grp"};
+item8[] = {"__isNil",4,218,334.375732,-228.936676,424.375732,-178.936676,0.000000,"!isNil"};
+item9[] = {"__isNil",4,218,341.500092,-104.259163,431.500092,-54.259155,0.000000,"!isNil"};
+item10[] = {"__isNil",4,218,345.062469,0.826111,435.062469,50.826111,0.000000,"!isNil"};
+item11[] = {"pos_found_",4,218,685.253784,-104.259216,775.253784,-54.259216,0.000000,"pos found?"};
+item12[] = {"SpawnOfficerWreck",2,250,829.503906,-103.113647,919.503906,-53.113647,0.000000,"SpawnOfficerWreck" \n "task"};
+item13[] = {"wait",4,218,955.776611,-102.419800,1045.776611,-52.419800,0.000000,"wait"};
+item14[] = {"add_damage_setup",2,250,1087.109375,-101.401611,1177.109375,-51.401611,0.000000,"add damage" \n "setup vars"};
+item15[] = {"wait",4,218,1259.165771,-101.401611,1349.165894,-51.401611,0.000000,"wait"};
+item16[] = {"Warn_players_that",2,250,1409.841675,-101.401863,1499.841675,-51.401855,0.000000,"Warn players that" \n "u is bleeding"};
+item17[] = {"wait",4,218,1536.079590,-102.374077,1626.079590,-52.374084,0.000000,"wait"};
+item18[] = {"dist_drop_off",8,218,829.531738,-219.453247,919.531738,-169.453247,0.000000,"dist drop-off"};
+item19[] = {"win",1,250,1226.583252,-461.756622,1316.583252,-411.756653,0.000000,"win"};
+item20[] = {"fail",1,250,1710.375122,-464.244965,1800.375122,-414.244965,0.000000,"fail"};
+item21[] = {"dist_drop_off",8,218,1087.310059,-218.887451,1177.310059,-168.887451,0.000000,"dist drop-off"};
+item22[] = {"dist_drop_off",8,218,1409.023682,-228.050171,1499.023682,-178.050171,0.000000,"dist drop-off"};
+item23[] = {"",7,210,1268.600830,-206.598175,1276.600830,-198.598175,0.000000,""};
+item24[] = {"",7,210,1128.105713,-441.774811,1136.105713,-433.774811,0.000000,""};
+item25[] = {"",7,210,871.549316,-440.756714,879.549316,-432.756714,0.000000,""};
+item26[] = {"kill_unit",2,4346,1711.186401,-103.393372,1801.186401,-53.393372,0.000000,"kill unit"};
+item27[] = {"wait1sec___notif",4,218,1711.187378,-228.616821,1801.187378,-178.616821,0.000000,"wait1sec" \n "+" \n "notify"};
+item28[] = {"fail_1",1,250,1087.613647,191.008911,1177.613770,241.008911,0.000000,"fail"};
+item29[] = {"died_",4,218,829.862183,-30.018188,919.862183,19.981812,0.000000,"died?"};
+item30[] = {"died_",4,218,1087.511230,-27.617737,1177.511230,22.382263,0.000000,"died?"};
+item31[] = {"died_",4,218,1409.972412,-21.216557,1499.972412,28.783447,0.000000,"died?"};
+item32[] = {"notify",2,250,1088.502686,44.591125,1178.502686,94.591125,0.000000,"notify"};
+item33[] = {"",7,210,1450.172241,66.196045,1458.172241,74.196045,0.000000,""};
+item34[] = {"",7,210,870.062134,66.195984,878.062134,74.195984,0.000000,""};
+item35[] = {"wait",4,218,1088.311401,122.010559,1178.311401,172.010559,0.000000,"wait"};
+link0[] = {0,1};
+link1[] = {0,2};
+link2[] = {0,3};
+link3[] = {1,4};
+link4[] = {2,5};
+link5[] = {3,6};
+link6[] = {4,8};
+link7[] = {5,9};
+link8[] = {6,10};
+link9[] = {7,11};
+link10[] = {8,7};
+link11[] = {9,7};
+link12[] = {10,7};
+link13[] = {11,12};
+link14[] = {12,13};
+link15[] = {12,18};
+link16[] = {12,29};
+link17[] = {13,14};
+link18[] = {14,15};
+link19[] = {14,21};
+link20[] = {14,30};
+link21[] = {15,16};
+link22[] = {16,17};
+link23[] = {16,22};
+link24[] = {16,31};
+link25[] = {17,26};
+link26[] = {18,25};
+link27[] = {21,24};
+link28[] = {22,23};
+link29[] = {23,19};
+link30[] = {24,19};
+link31[] = {25,19};
+link32[] = {26,27};
+link33[] = {27,20};
+link34[] = {29,34};
+link35[] = {30,32};
+link36[] = {31,33};
+link37[] = {32,35};
+link38[] = {33,32};
+link39[] = {34,32};
+link40[] = {35,28};
+globals[] = {0.000000,0,0,0,0,640,480,1,42,6316128,1,25.726646,2044.655884,731.373596,-792.624023,1648,1284,1};
+window[] = {2,-1,-1,-1,-1,1185,-2404,-484,156,3,1666};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "aw_OfficerRescue";
+        class States
+        {
+                /*%FSM<STATE "Init">*/
+                class Init
+                {
+                        name = "Init";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"//Grab MOD param" \n
+                         "_DACUnits = AW_UNITS;" \n
+                         "" \n
+                         "//Defines" \n
+                         "_officer_rescued = false;" \n
+                         "_oPos =nil;" \n
+                         "" \n
+                         "//Logging " \n
+                         "" \n
+                         "" \n
+                         "diag_log [""AW_MISSIONLOGGING--->  aw_OfficerRescue: INIT""];" \n
+                         "" \n
+                         "" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "case_rhs">*/
+                                class case_rhs
+                                {
+                                        itemno = 2;
+                                        priority = 0.000000;
+                                        to="Officer_cName__1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_DACUnits == 1"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "case_vanilla">*/
+                                class case_vanilla
+                                {
+                                        itemno = 3;
+                                        priority = 0.000000;
+                                        to="Officer_cName__2";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_DACUnits == 2"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "case_cup">*/
+                                class case_cup
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="Officer_cName_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_DACUnits == 0" \n
+                                         "" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Officer_cName_">*/
+                class Officer_cName_
+                {
+                        name = "Officer_cName_";
+                        itemno = 4;
+                        init = /*%FSM<STATEINIT""">*/"_officer_class = ""CUP_O_sla_Commander"";" \n
+                         "" \n
+                         "" \n
+                         "//Logging" \n
+                         "diag_log [""AW_MISSIONLOGGING--->  aw_OfficerRescue:CUP Unit selected""];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "__isNil">*/
+                                class __isNil
+                                {
+                                        itemno = 8;
+                                        priority = 0.000000;
+                                        to="Find_posistion_define";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!isNil ""_officer_class"""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Officer_cName__1">*/
+                class Officer_cName__1
+                {
+                        name = "Officer_cName__1";
+                        itemno = 5;
+                        init = /*%FSM<STATEINIT""">*/"_officer_class = ""rhs_vdv_mflora_officer_armored"";" \n
+                         "" \n
+                         "//Logging" \n
+                         "diag_log [""AW_MISSIONLOGGING--->  aw_OfficerRescue:RHS Class selected""];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "__isNil">*/
+                                class __isNil
+                                {
+                                        itemno = 9;
+                                        priority = 0.000000;
+                                        to="Find_posistion_define";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!isNil ""_officer_class"""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Officer_cName__2">*/
+                class Officer_cName__2
+                {
+                        name = "Officer_cName__2";
+                        itemno = 6;
+                        init = /*%FSM<STATEINIT""">*/"_officer_class = ""O_officer_F"";" \n
+                         "" \n
+                         "" \n
+                         "" \n
+                         "" \n
+                         "//Logging" \n
+                         "diag_log [""AW_MISSIONLOGGING--->  aw_OfficerRescue:Vanilla Unit selected""];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "__isNil">*/
+                                class __isNil
+                                {
+                                        itemno = 10;
+                                        priority = 0.000000;
+                                        to="Find_posistion_define";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!isNil ""_officer_class"""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Find_posistion_define">*/
+                class Find_posistion_define
+                {
+                        name = "Find_posistion_define";
+                        itemno = 7;
+                        init = /*%FSM<STATEINIT""">*/"_oPos = [""land2"", true, 10] call AW_fnc_findSpace;" \n
+                         "_oGroup = createGroup east;" \n
+                         "" \n
+                         "//DEBUG" \n
+                         "hint ""AW_OF_RES:POS FOUND"";" \n
+                         "" \n
+                         "diag_log [""AW_MISSIONLOGGING--->  aw_OfficerRescue:Posistion Selection""];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "pos_found_">*/
+                                class pos_found_
+                                {
+                                        itemno = 11;
+                                        priority = 0.000000;
+                                        to="SpawnOfficerWreck";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!isNil ""_oPos"""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"diag_log [""AW_MISSIONLOGGING--->  aw_OfficerRescue:Pos Found""];"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "SpawnOfficerWreck">*/
+                class SpawnOfficerWreck
+                {
+                        name = "SpawnOfficerWreck";
+                        itemno = 12;
+                        init = /*%FSM<STATEINIT""">*/"_wreck = createVehicle [""Land_Wreck_Offroad_F"",_oPos, [], 0, ""NONE"" ];" \n
+                         "" \n
+                         "//Spawn officer and unconcious him" \n
+                         "_officer = _oGroup createUnit [_officer_class, _oPos, [], 50, ""NONE""];" \n
+                         "" \n
+                         "" \n
+                         "//Distance trigger for drop\pickup" \n
+                         "" \n
+                         "_trg = createTrigger [""EmptyDetector"",getMarkerPos ""LZ""];" \n
+                         "_trg setTriggerArea [20,20,20,false];" \n
+                         "_trg setTriggerStatements [""_officer distance thistrigger < 10"",""_officer_rescued = true"",""""];" \n
+                         "//Task" \n
+                         "_taskID = [""A Officer has driven over a IED, he needs immidiate rescuing, get him back to the drop-off zone"",""Rescue Officer"",""testWords"",_oPos,""Search""] call AW_fnc_makeTask;" \n
+                         "" \n
+                         "//Define Time untill update(addwounds etc)" \n
+                         "_timeout = time + 300;" \n
+                         "" \n
+                         "" \n
+                         "" \n
+                         "" \n
+                         "" \n
+                         "diag_log [""AW_MISSIONLOGGING--->  aw_OfficerRescue:Spawning officer, spawning tasking""];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "dist_drop_off">*/
+                                class dist_drop_off
+                                {
+                                        itemno = 18;
+                                        priority = 0.000000;
+                                        to="win";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_officer_rescued"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"diag_log [""AW_MISSIONLOGGING--->  aw_OfficerRescue:Officer Rescued""];"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "died_">*/
+                                class died_
+                                {
+                                        itemno = 29;
+                                        priority = 0.000000;
+                                        to="notify";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!alive _officer"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"diag_log [""AW_MISSIONLOGGING--->  aw_OfficerRescue:Officer died""];"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "wait">*/
+                                class wait
+                                {
+                                        itemno = 13;
+                                        priority = 0.000000;
+                                        to="add_damage_setup";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time >= _timeout"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "add_damage_setup">*/
+                class add_damage_setup
+                {
+                        name = "add_damage_setup";
+                        itemno = 14;
+                        init = /*%FSM<STATEINIT""">*/"[_officer, true,600] call ace_medical_fnc_setUnconscious;" \n
+                         "[_officer, 0.1, ""leg_r"", ""bullet""] call ace_medical_fnc_addDamageToUnit;" \n
+                         "" \n
+                         "_timeout = time + 1;" \n
+                         "" \n
+                         "" \n
+                         "//Logging " \n
+                         "" \n
+                         "diag_log [""AW_MISSIONLOGGING--->  aw_OfficerRescue:Adding damage to officer""];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "dist_drop_off">*/
+                                class dist_drop_off
+                                {
+                                        itemno = 21;
+                                        priority = 0.000000;
+                                        to="win";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_officer_rescued"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"diag_log [""AW_MISSIONLOGGING--->  aw_OfficerRescue:Officer Rescued""];"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "died_">*/
+                                class died_
+                                {
+                                        itemno = 30;
+                                        priority = 0.000000;
+                                        to="notify";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!alive _officer"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"diag_log [""AW_MISSIONLOGGING--->  aw_OfficerRescue:Officer died""];"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "wait">*/
+                                class wait
+                                {
+                                        itemno = 15;
+                                        priority = 0.000000;
+                                        to="Warn_players_that";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time >= _timeout"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Warn_players_that">*/
+                class Warn_players_that
+                {
+                        name = "Warn_players_that";
+                        itemno = 16;
+                        init = /*%FSM<STATEINIT""">*/"//Notific" \n
+                         "[""GeneralNotify"",[""Officer has reported that he has started bleeding, get to him ASAP!!""]] call BIS_fnc_showNotification;" \n
+                         "" \n
+                         "//Timeoit" \n
+                         "" \n
+                         "_timeout = time + 600;" \n
+                         "" \n
+                         "diag_log [""AW_MISSIONLOGGING--->  aw_OfficerRescue:Bleed Notification""];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "dist_drop_off">*/
+                                class dist_drop_off
+                                {
+                                        itemno = 22;
+                                        priority = 0.000000;
+                                        to="win";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_officer_rescued"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"diag_log [""AW_MISSIONLOGGING--->  aw_OfficerRescue:Officer Rescued""];"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "died_">*/
+                                class died_
+                                {
+                                        itemno = 31;
+                                        priority = 0.000000;
+                                        to="notify";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!alive _officer"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"diag_log [""AW_MISSIONLOGGING--->  aw_OfficerRescue:Officer died""];"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "wait">*/
+                                class wait
+                                {
+                                        itemno = 17;
+                                        priority = 0.000000;
+                                        to="kill_unit";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time >= _timeout"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "win">*/
+                class win
+                {
+                        name = "win";
+                        itemno = 19;
+                        init = /*%FSM<STATEINIT""">*/"[_taskID,""SUCCEEDED""] call BIS_fnc_taskSetState;" \n
+                         "deleteVehicle _officer;" \n
+                         "MAINFSM setFSMVariable [""_main_complete"", 1];" \n
+                         "" \n
+                         "diag_log [""AW_MISSIONLOGGING--->  aw_OfficerRescue:FSM Exit""];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "fail">*/
+                class fail
+                {
+                        name = "fail";
+                        itemno = 20;
+                        init = /*%FSM<STATEINIT""">*/"[_taskID,""FAILED""] call BIS_fnc_taskSetState;" \n
+                         "MAINFSM setFSMVariable [""_main_complete"", 1];" \n
+                         "deleteVehicle _officer;" \n
+                         "diag_log [""AW_MISSIONLOGGING--->  aw_OfficerRescue:FSM Exit""];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "kill_unit">*/
+                class kill_unit
+                {
+                        name = "kill_unit";
+                        itemno = 26;
+                        init = /*%FSM<STATEINIT""">*/"_officer setDamage 1;" \n
+                         "" \n
+                         "diag_log [""AW_MISSIONLOGGING--->  aw_OfficerRescue:TimeOut,officer killed""];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "wait1sec___notif">*/
+                                class wait1sec___notif
+                                {
+                                        itemno = 27;
+                                        priority = 0.000000;
+                                        to="fail";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"[""GeneralNotify"",[""The officer has died of shock""]] call BIS_fnc_showNotification;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "fail_1">*/
+                class fail_1
+                {
+                        name = "fail_1";
+                        itemno = 28;
+                        init = /*%FSM<STATEINIT""">*/"[_taskID,""FAILED""] call BIS_fnc_taskSetState;" \n
+                         "MAINFSM setFSMVariable [""_main_complete"", 1];" \n
+                         "" \n
+                         "diag_log [""AW_MISSIONLOGGING--->  aw_OfficerRescue:FSM Exit""];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "notify">*/
+                class notify
+                {
+                        name = "notify";
+                        itemno = 32;
+                        init = /*%FSM<STATEINIT""">*/"[""GeneralNotify"",[""The officer has been KIA""]] call BIS_fnc_showNotification;" \n
+                         "deleteVehicle _officer;" \n
+                         "_timeout = time + 2;" \n
+                         "" \n
+                         "" \n
+                         "diag_log [""AW_MISSIONLOGGING--->  aw_OfficerRescue:KIA Notification""];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "wait">*/
+                                class wait
+                                {
+                                        itemno = 35;
+                                        priority = 0.000000;
+                                        to="fail_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time >= _timeout"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="Init";
+        finalStates[] =
+        {
+                "win",
+                "fail",
+                "fail_1",
+        };
+};
+/*%FSM</COMPILE>*/
