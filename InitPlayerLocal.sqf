@@ -16,8 +16,7 @@ enableSaving [false,false];//Disable SP save
 [] call AW_fnc_diary;//Write briefing/changelog etc. into mission
 [] call AW_fnc_VA02;//Limited arsenal
 //[] execVM 'Scripts\Loadouts\Woodland\LEX.sqf';//Loadout exec
-//----------- Add respawn EH
-//player addMPEventHandler ["MPRespawn", {[]execFSM "Machines\Player\PlayerRespawn.fsm"}];// Circumvent BIS bug of initPlayerLocal and OnPlayerRespawn firing on mission start
+
 [player, currentWeapon player, currentMuzzle player] call ace_safemode_fnc_lockSafety;//Put safety on for player....
 
 // -------------- Headless Client

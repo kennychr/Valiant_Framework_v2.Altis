@@ -8,7 +8,7 @@ class EditorData
 	toggles=513;
 	class ItemIDProvider
 	{
-		nextID=1497;
+		nextID=1499;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=271;
+		nextID=291;
 	};
 	class Camera
 	{
-		pos[]={2512.2478,186.80069,22134.883};
-		dir[]={0.8008998,-0.51884365,-0.29924414};
-		up[]={0.48604342,0.85485709,-0.18160389};
-		aside[]={-0.35004154,3.6651909e-007,-0.93684781};
+		pos[]={13780.757,77.015129,6345.0625};
+		dir[]={-0.098803289,-0.41191062,0.90585464};
+		up[]={-0.044663146,0.91122288,0.40948418};
+		aside[]={0.99410611,-1.340959e-008,0.10842928};
 	};
 };
 binarizationWanted=0;
@@ -93,14 +93,13 @@ addons[]=
 	"rhsusf_c_m1a2",
 	"A3_Structures_F_Ind_Cargo",
 	"A3_Weapons_F_Ammoboxes",
-	"ace_sitting",
 	"A3_Structures_F_EPB_Civ_Camping"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=49;
+		items=48;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -434,13 +433,6 @@ class AddonsMetaData
 			name="Arma 3 Alpha - Weapons and Accessories";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
-		};
-		class Item48
-		{
-			className="ace_sitting";
-			name="ACE3 - Sitting";
-			author="ACE-Team";
-			url="http://ace3mod.com/";
 		};
 	};
 };
@@ -805,7 +797,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=269;
+		items=271;
 		class Item0
 		{
 			dataType="Trigger";
@@ -12253,13 +12245,13 @@ class Mission
 				position[]={2377.9023,75.264877,22168.957};
 			};
 			side="Empty";
-			flags=4;
 			class Attributes
 			{
 				name="LIM_box";
 			};
 			id=1387;
 			type="Land_CargoBox_V1_F";
+			atlOffset=4.0500641;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -13599,6 +13591,7 @@ class Mission
 			};
 			id=1490;
 			type="Land_BarGate_F";
+			atlOffset=4.7683716e-007;
 		};
 		class Item263
 		{
@@ -13684,6 +13677,7 @@ class Mission
 			};
 			id=1495;
 			type="Land_HBarrier_5_F";
+			atlOffset=1.1920929e-007;
 		};
 		class Item268
 		{
@@ -13701,6 +13695,31 @@ class Mission
 			};
 			id=1496;
 			type="Land_HBarrier_3_F";
+		};
+		class Item269
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={13768.082,60.497707,6376.438};
+			};
+			name="HC1";
+			isPlayable=1;
+			id=1497;
+			type="HeadlessClient_F";
+		};
+		class Item270
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={13771.31,60.444805,6376.7549};
+			};
+			name="HC2";
+			isPlayable=1;
+			id=1498;
+			type="HeadlessClient_F";
+			atlOffset=-0.0060005188;
 		};
 	};
 };
