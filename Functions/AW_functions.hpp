@@ -31,6 +31,11 @@ class AW {
 		class findTown							{};
 		class mapCenter							{};
 	};
+	class Roster {
+		file = "Functions\Roster";
+		class open_roster						{};
+		class roster								{};
+	};
 
 	class Supplies {
 		file = "Functions\Supplies";

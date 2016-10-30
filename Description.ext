@@ -33,7 +33,7 @@ respawnTemplatesWest[] = {"ace_spectator","Counter","MenuPosition"};
 respawnOnStart = 0;
 //------------------------- Includes
 #include "Scripts\Third-Party\VVS\menu.h"
-
+#include "Dialog\dialog.hpp"
 
 //------------------------- Configs
 class CfgFunctions
