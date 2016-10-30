@@ -28,7 +28,7 @@
  *
  */
 
-
+_loadoutC = false;
 
 
 //---------:::::Include Standard arrays and specialized stuff
@@ -311,6 +311,9 @@ _STANDARD_VESTS = [
 "rhsusf_spcs_ucp_rifleman"
 ];
 _STANDARD_ITEMS = [
+"tf_microdagr",
+"tf_rf7800str",
+"tf_anprc152",
 "ACE_Vector",
 "ACE_VectorDay",
 "ACE_Yardage450",
@@ -358,7 +361,8 @@ _STANDARD_BACKPACKS = [
 "rhsusf_assault_eagleaiii_ocp",
 "rhsusf_assault_eagleaiii_ucp",
 "rhsusf_falconii_coy",
-"rhsusf_falconii_mc"
+"rhsusf_falconii_mc",
+"tf_rt1523g_big_rhs"
 ];
 _STANDARD_AMMO = [
 "HandGrenade",
@@ -653,3 +657,5 @@ switch (_class) do {
     };
 
 };
+_loadoutC = true;
+_loadoutC

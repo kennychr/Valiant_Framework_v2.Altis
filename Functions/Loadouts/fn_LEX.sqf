@@ -14,6 +14,8 @@
  *
  * Public: [Yes/No]
  */
+
+_loadoutC = false;
 //---------------Start Of Loadout Functions---------------
 //--------Platoon Command
 AW_fnc_Loadout_PLTCO = {
@@ -528,7 +530,7 @@ AW_fnc_Loadout_MMG_T = {
   player linkItem "ItemCompass";
   player linkItem "ItemWatch";
   player linkItem "ItemGPS";
-  ["ftleader"] call AW_fnc_radioGiver;
+["squadleader"] call AW_fnc_radioGiver;
 
 
 
@@ -743,7 +745,7 @@ AW_fnc_Loadout_FSG_T = {
   player linkItem "ItemCompass";
   player linkItem "ItemWatch";
   player linkItem "ItemGPS";
-  ["teamleader"] call AW_fnc_radioGiver;
+["squadleader"] call AW_fnc_radioGiver;
 };
 //--------Fire Support Group Soldier
 AW_fnc_Loadout_FSG_S = {
@@ -831,7 +833,7 @@ AW_fnc_Loadout_MEU_T = {
   player linkItem "ItemCompass";
   player linkItem "ItemWatch";
   player linkItem "ItemGPS";
-  ["teamleader"] call AW_fnc_radioGiver;
+["squadleader"] call AW_fnc_radioGiver;
 };
 //--------Medical Evacuation Unit Rifleman
 AW_fnc_Loadout_MEU_R = {
@@ -971,7 +973,7 @@ AW_fnc_Loadout_REP_TL = {
   player linkItem "ItemCompass";
   player linkItem "ItemWatch";
   player linkItem "ItemGPS";
-  ["teamleader"] call AW_fnc_radioGiver;
+  ["squadleader"] call AW_fnc_radioGiver;
 };
 
 //--------Repair team Repair Specialist
@@ -1498,3 +1500,5 @@ switch _c do {
       case 'Vic_D' : { []call AW_fnc_Loadout_Vic_D};//Vehicle Crew Driver
 
 };
+_loadoutC = true;
+_loadoutC

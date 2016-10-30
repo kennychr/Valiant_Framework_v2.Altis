@@ -17,7 +17,7 @@ VVS_Premade_List = true;
 */
 
 VVS_Car = ["rhsusf_m1025_w_s_m2","rhsusf_m1025_w_s_Mk19","rhsusf_m998_w_s_2dr_halftop","rhsusf_m998_w_s_2dr_fulltop","rhsusf_rg33_m2_usmc_wd","rhsusf_M977A4_REPAIR_BKIT_M2_usarmy_wd","rhsusf_M977A4_AMMO_BKIT_M2_usarmy_wd"];
-VVS_Air = [];
+VVS_Air = ["RHS_MELB_AH6M_H","RHS_MELB_AH6M_L","RHS_MELB_AH6M_M","RHS_MELB_MH6M","RHS_MELB_H6M","RHS_UH60M","RHS_AH64D_wd_GS"];
 VVS_Ship = [];
 VVS_Armored = ["RHS_M2A2_BUSKI_WD","rhsusf_m1a2sep1tuskiiwd_usarmy"];
 VVS_Autonomous = [];

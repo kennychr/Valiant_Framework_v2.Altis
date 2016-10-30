@@ -51,6 +51,12 @@ ne_airfield_captured = false;
 //---------- Get Param for units used
 AW_UNITS = "OPFORUnits" call BIS_fnc_getParamValue; publicVariable "AW_UNITS";
 
+//Setup supply bokses etc
+[{[FSG_crate] call AW_fnc_FSG}, 800, []] call CBA_fnc_addPerFrameHandler;
+[{[LOGI_crate,LOGI_medical] call AW_fnc_Supply}, 800, []] call CBA_fnc_addPerFrameHandler;
+
+
+
 
 //---------- Start airfield logic
 [] call AW_fnc_af_logic;

@@ -37,6 +37,8 @@ class AW {
 		class Ammo_Crate					{};
 		class radioBox						{};
 		class supplyPole					{};
+		class FSG									{};
+		class Supply							{};
 	};
 
 	class VA {
@@ -53,7 +55,6 @@ class AW {
 		class vSpawn_lhd						{};
 		class cachePlacer						{};
 		class vehicleSpawner				{};
-		class fob_addINIT						{};
 		class af_logic							{};
 
 	};
@@ -88,6 +89,7 @@ class AW {
 		class presets 		{};
 		class radio_init	{};
 		class tfar_setup	{};
+		class tfar_channel_set	{};
 		class radioGiver	{};
 	};
 	class Loadouts {
