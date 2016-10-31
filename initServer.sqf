@@ -34,7 +34,7 @@ definedTime = (paramsArray select 1);
 //---------- Map center fnc !!Do not ever remove!!
 [] call AW_fnc_mapCenter;
 //---------- Radio box setup
-[RADIO_box] call AW_fnc_radioBox;
+
 
 //----------::::::::::::::::: Map Radius, This can\must be tweaked when porting over to other maps if not you will experince missions spawning of the visible map, easiest is to spawn center-ish on map and then using shift-click to measure map's radius and then subtracting 500-1000m and input the value.
 mapRadius = 9400;publicVariable "mapRadius";
@@ -44,30 +44,26 @@ w_airfield_captured = false;
 se_airfield_captured = false;
 ne_airfield_captured = false;
 
-
-
-//---------- Add radios to box
-//[RADIO_box] call AW_fnc_radioBox;
 //---------- Get Param for units used
 AW_UNITS = "OPFORUnits" call BIS_fnc_getParamValue; publicVariable "AW_UNITS";
 
-//Setup supply bokses etc
+//Setup supply boxses etc
 [{[FSG_crate] call AW_fnc_FSG}, 800, []] call CBA_fnc_addPerFrameHandler;
 [{[LOGI_crate,LOGI_medical] call AW_fnc_Supply}, 800, []] call CBA_fnc_addPerFrameHandler;
-
-
-
-
-//---------- Start airfield logic
+[RADIO_box] call AW_fnc_radioBox;
+//---------- Check for airfield start or start the main missions and if selected the sidemissions
+AW_Airfield = "Airfield" call BIS_fnc_getParamValue; publicVariable "AW_Airfield";
+if (AW_Airfield == 1) then {
 [] call AW_fnc_af_logic;
-
-//---------- Run mission engines(quoted out as AF logic is running)
-//MAINFSM = []execFSM "Modules\Main\Main.fsm"; publicVariable "MAINFSM";				// Main Mission Selector
-AW_Sidemissions = "SideMissions" call BIS_fnc_getParamValue; publicVariable "AW_Sidemissions";//Get param for if sidemission shold run
-if (AW_Sidemissions == 1) then {
-//SIDEFSM = []execFSM "Modules\Side\Side.fsm"; publicVariable "SIDEFSM";
 };
 
+if (AW_Airfield == 0) then {
+	MAINFSM = []execFSM "Modules\Main\Main.fsm"; publicVariable "MAINFSM";				// Main Mission Selector
+	AW_Sidemissions = "SideMissions" call BIS_fnc_getParamValue; publicVariable "AW_Sidemissions";//Get param for if sidemission shold run
+	if (AW_Sidemissions == 1) then {
+	SIDEFSM = []execFSM "Modules\Side\Side.fsm"; publicVariable "SIDEFSM";
+	};
+};
 
 //---------------------------------- Params Check
 AW_Arsenal = "Arsenal" call BIS_fnc_getParamValue; publicVariable "AW_Arsenal";

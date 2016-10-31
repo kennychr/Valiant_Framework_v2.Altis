@@ -112,7 +112,12 @@ class Params
 						values[] = {0,1};
 						default = 1;
 			};
-
+			class Airfield {
+				title = "Airfield capture required?";
+				texts[] = {"NO","YES"};
+				values[] = {0,1};
+				default = 1;
+			};
 
 };
 
