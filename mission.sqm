@@ -8,22 +8,22 @@ class EditorData
 	toggles=522;
 	class ItemIDProvider
 	{
-		nextID=1693;
+		nextID=1696;
 	};
 	class MarkerIDProvider
 	{
-		nextID=46;
+		nextID=47;
 	};
 	class LayerIndexProvider
 	{
-		nextID=346;
+		nextID=356;
 	};
 	class Camera
 	{
-		pos[]={2637.6726,31.338268,22209.465};
-		dir[]={-0.78362405,-0.59485441,-0.17965649};
-		up[]={-0.57983667,0.80381435,-0.13293602};
-		aside[]={-0.22348548,2.632878e-007,0.97480249};
+		pos[]={2690.321,18.174791,22143.83};
+		dir[]={-0.96003813,-0.27708054,-0.04199345};
+		up[]={-0.27689525,0.96081984,-0.012113077};
+		aside[]={-0.043704201,2.7580245e-007,0.99914217};
 	};
 };
 binarizationWanted=0;
@@ -815,7 +815,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=365;
+		items=366;
 		class Item0
 		{
 			dataType="Trigger";
@@ -14931,7 +14931,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={2600.8899,12.086933,22170.689};
+				position[]={2600.6367,12.086933,22170.604};
 				angles[]={0,4.6252327,0};
 			};
 			side="Empty";
@@ -14941,7 +14941,7 @@ class Mission
 			};
 			id=1542;
 			type="Land_Pier_F";
-			atlOffset=5.1783981;
+			atlOffset=5.130518;
 		};
 		class Item301
 		{
@@ -14991,7 +14991,7 @@ class Mission
 			};
 			id=1547;
 			type="Land_Shed_Small_F";
-			atlOffset=0.59526443;
+			atlOffset=0.59483719;
 		};
 		class Item304
 		{
@@ -15321,7 +15321,7 @@ class Mission
 			};
 			id=1563;
 			type="Land_HBarrier_5_F";
-			atlOffset=0.00047111511;
+			atlOffset=4.0054321e-005;
 		};
 		class Item319
 		{
@@ -16130,7 +16130,7 @@ class Mission
 			};
 			id=1679;
 			type="Land_HBarrier_5_F";
-			atlOffset=0.0015220642;
+			atlOffset=0.0010910034;
 		};
 		class Item354
 		{
@@ -16175,14 +16175,13 @@ class Mission
 				angles[]={0,1.4956249,0};
 			};
 			side="Empty";
-			flags=4;
 			class Attributes
 			{
 				createAsSimpleObject=1;
 			};
 			id=1682;
 			type="Land_HBarrier_5_F";
-			atlOffset=0.00019264221;
+			atlOffset=9.0794086;
 		};
 		class Item357
 		{
@@ -16410,14 +16409,13 @@ class Mission
 				angles[]={0,3.0873165,0};
 			};
 			side="Empty";
-			flags=4;
 			class Attributes
 			{
 				createAsSimpleObject=1;
 			};
 			id=1689;
 			type="Land_HBarrier_5_F";
-			atlOffset=0.00013542175;
+			atlOffset=9.2582474;
 		};
 		class Item364
 		{
@@ -16428,6 +16426,16 @@ class Mission
 			type="loc_Bunker";
 			id=1692;
 			atlOffset=2.2856503e+017;
+		};
+		class Item365
+		{
+			dataType="Marker";
+			position[]={2628.073,-1.230783e-023,22133.693};
+			name="LZ";
+			text="Pick up \ Drop off point";
+			type="mil_pickup";
+			id=1695;
+			atlOffset=-5.0644083;
 		};
 	};
 };
