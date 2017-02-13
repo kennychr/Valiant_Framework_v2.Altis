@@ -24,6 +24,10 @@ class AW {
 
 	};
 
+class Airfield {
+	file = "Functions\Airfield";
+	class airfield_init							{};
+};
 
 	class Map	{
 		file = "Functions\Map";
@@ -61,6 +65,7 @@ class AW {
 		class cachePlacer						{};
 		class vehicleSpawner				{};
 		class af_logic							{};
+		class server_init						{};
 
 	};
 
@@ -101,6 +106,13 @@ class AW {
 		file = "Functions\Loadouts";
 		class LEX					{};
 	};
+	class Safestart {
+		file = "Functions\SafeStart";
+		class safestart_init {};
+		class safestart_player {};
+		class safestart_server_countdown {};
+		class safestart_server_admin {};
+	}
 
 };
 class QS {

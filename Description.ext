@@ -54,13 +54,6 @@ class CfgTaskEnhancements
 class Params
 {
 
-			class OPFORUnits
-			{
-						title = "What Units would you like as OPFOR?DEPRACATED";
-						values[] = {0,1,2};
-						texts[] = {"CUP Units","RHS Units","Vanilla Units"};
-						default = 1;
-			};
 			class TimeOfDay {
 
 						title = "Time of Day:";
@@ -97,7 +90,7 @@ class Params
 				title = "Distance from players that vehicles won't respawn";
 				values[] = {10,50,100,200,300,400,500,1000,2000,5000,10000};
 				texts[] = {"10m","50m","100m","200m","300m","400m","500m","1km","2km","5km","10km"};
-				default = 1000;
+				default = 2000;
 			};
 
 			class MissionAmount {
@@ -116,8 +109,10 @@ class Params
 				title = "Airfield capture required?";
 				texts[] = {"NO","YES"};
 				values[] = {0,1};
-				default = 1;
+				default = 0;
 			};
+
+
 
 };
 
@@ -126,16 +121,35 @@ class CfgNotifications {
    class GeneralNotify {
 
         title = "Notification";
-
         iconPicture = "\A3\ui_f\data\map\mapcontrol\taskIcon_ca.paa";
-
         description = "%1";
-
         duration = 10;
-
         priority = 7;
 
     };
+		class SafeStart
+		{
+			title = "SAFE START";
+			description = "%1";
+			iconPicture="\A3\UI_F\data\IGUI\Cfg\Actions\settimer_ca.paa";
+			duration = 10;
+			priority = 0;
+		};
+		class SafeStart2
+		{
+			title = "SAFE START";
+			description = "%1,%2";
+			iconPicture="\A3\UI_F\data\IGUI\Cfg\Actions\settimer_ca.paa";
+			duration = 10;
+			priority = 0;
+		};
+		class SafeStartMissionStarting {
+			title = "SAFE START";
+			description = "%1";
+			iconPicture="\A3\UI_F\data\IGUI\Cfg\Actions\settimer_ca.paa";
+			duration = 3;
+			priority = 1;
+		};
 };
 
 
@@ -149,33 +163,19 @@ class enemy {
 	#include "Config\enemy.hpp"
 };
 
-class Extended_Killed_Eventhandlers {
 
- 	class RHS_AH1Z_wd_GS {
-        CUP_WaterVehicles_LHD_killed = " [(_this select 0),60] spawn AW_fnc_vSpawn_lhd";
-		};
-	class rhsusf_CH53E_USMC {
-				CUP_WaterVehicles_LHD_killed = " [(_this select 0),60] spawn AW_fnc_vSpawn_lhd";
-		};
-	class rhsusf_m1025_w_s_m2 {
-				CUP_WaterVehicles_LHD_killed = " [(_this select 0),30] spawn AW_fnc_vSpawn_lhd";
-		};
-	class rhsusf_m1025_w_s_Mk19 {
-				CUP_WaterVehicles_LHD_killed = " [(_this select 0),30] spawn AW_fnc_vSpawn_lhd";
-		};
-	class RHS_M2A3_wd {
-				CUP_WaterVehicles_LHD_killed = " [(_this select 0),30] spawn AW_fnc_vSpawn_lhd";
-		};
-	class Burnes_MK10_1 {
-				CUP_WaterVehicles_LHD_killed = " [(_this select 0),30] spawn AW_fnc_vSpawn_lhd";
-		};
-};
 
 class Extended_PreInit_EventHandlers {
 	UCD_pre_init = "call compile preProcessFileLineNumbers 'scripts\unitCaching\init.sqf'";
+	serverInit = "[] call AW_fnc_server_init;";
 
 
+};
 
+class Extended_PostInit_EventHandlers {
+    class AW_init_event {
+        //serverInit = "[] call AW_fnc_airfield_init;";
+    };
 };
 
 class Extended_Init_EventHandlers {

@@ -1,0 +1,63 @@
+/*%FSM<COMPILE "F:\SteamLibrary\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, captureHVT">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Init_",0,250,559.921570,-565.081543,649.921570,-515.081543,0.000000,"Init" \n ""};
+item1[] = {"wait_for_pos",4,218,559.921692,-485.218323,649.921692,-435.218292,0.000000,"wait for pos"};
+item2[] = {"spawn_hvt___enem",2,250,559.072021,-405.355042,649.072021,-355.355042,0.000000,"spawn hvt + enemies"};
+link0[] = {0,1};
+link1[] = {1,2};
+globals[] = {0.000000,0,0,0,0,640,480,1,5,6316128,1,-63.720680,1259.120605,15.562866,-1075.335205,1557,1244,1};
+window[] = {2,-1,-1,-1,-1,1055,26,1946,26,3,1575};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "captureHVT";
+        class States
+        {
+                /*%FSM<STATE "Init_">*/
+                class Init_
+                {
+                        name = "Init_";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"_hvt_class = ""rhs_msv_emr_officer"";" \n
+                         "_hvt_captured = false;" \n
+                         "_hvt_pos = nil;" \n
+                         "_hvt_pos = [""land2"",true,50] call AW_fnc_findSpace;" \n
+                         "diag_log [""AW_MISSIONLOGGING--->  aw_captureHVT: INIT""];" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "wait_for_pos">*/
+                                class wait_for_pos
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="spawn_hvt___enem";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!isNil ""_hvt_pos"""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "spawn_hvt___enem">*/
+                class spawn_hvt___enem
+                {
+                        name = "spawn_hvt___enem";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="Init_";
+        finalStates[] =
+        {
+        };
+};
+/*%FSM</COMPILE>*/

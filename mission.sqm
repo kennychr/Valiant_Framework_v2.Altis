@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=356;
+		nextID=441;
 	};
 	class Camera
 	{
-		pos[]={2690.321,18.174791,22143.83};
-		dir[]={-0.96003813,-0.27708054,-0.04199345};
-		up[]={-0.27689525,0.96081984,-0.012113077};
-		aside[]={-0.043704201,2.7580245e-007,0.99914217};
+		pos[]={2327.0537,108.3497,22224.424};
+		dir[]={-0.3945322,-0.35709828,-0.84678584};
+		up[]={-0.15084012,0.93403488,-0.32375205};
+		aside[]={-0.90653437,3.3312244e-007,0.42237031};
 	};
 };
 binarizationWanted=0;
@@ -66,7 +66,6 @@ addons[]=
 	"A3_Structures_F_EPB_Items_Vessels",
 	"A3_Modules_F_Curator_Curator",
 	"A3_Structures_F_Items_Electronics",
-	"A3_3DEN",
 	"A3_Modules_F_Multiplayer",
 	"A3_Structures_F_Naval_Piers",
 	"A3_Structures_F_Training",
@@ -103,7 +102,7 @@ class AddonsMetaData
 {
 	class List
 	{
-		items=50;
+		items=49;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -309,143 +308,136 @@ class AddonsMetaData
 		};
 		class Item29
 		{
-			className="A3_3DEN";
-			name="Arma 3 Eden Update - Eden Editor";
-			author="Bohemia Interactive";
-			url="http://www.arma3.com";
-		};
-		class Item30
-		{
 			className="A3_Modules_F";
 			name="Arma 3 Alpha - Scripted Modules";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
-		class Item31
+		class Item30
 		{
 			className="A3_Structures_F_Heli";
 			name="Arma 3 Helicopters - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
-		class Item32
+		class Item31
 		{
 			className="A3_Structures_F_Ind";
 			name="Arma 3 - Industrial Structures";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
-		class Item33
+		class Item32
 		{
 			className="rhsusf_vehicles";
 			name="rhsusf_vehicles";
 		};
-		class Item34
+		class Item33
 		{
 			className="ace_logistics_wirecutter";
 			name="ACE3 - Logistics Wire Cutter";
 			author="ACE-Team";
 			url="http://ace3mod.com/";
 		};
-		class Item35
+		class Item34
 		{
 			className="A3_Props_F_Exp";
 			name="Arma 3 Apex - Decorative and Mission Objects";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
-		class Item36
+		class Item35
 		{
 			className="rhsusf_c_weapons";
 			name="RHSUSF Weapons & Accessories";
 			author="Red Hammer Studios";
 			url="http://www.rhsmods.org/";
 		};
-		class Item37
+		class Item36
 		{
 			className="rhsusf_c_HEMTT_A4";
 			name="HEMMTT A4 Trucks";
 			author="Red Hammer Studios";
 			url="http://www.rhsmods.org/";
 		};
-		class Item38
+		class Item37
 		{
 			className="ace_compat_rhs_usf3";
 			name="ACE3 - RHS USF Compatibility";
 			author="ACE-Team";
 			url="http://ace3mod.com/";
 		};
-		class Item39
+		class Item38
 		{
 			className="rhsusf_c_troops";
 			name="RHSUSF Infantry & Equipment";
 			author="Red Hammer Studios";
 			url="http://www.rhsmods.org/";
 		};
-		class Item40
+		class Item39
 		{
 			className="A3_Characters_F";
 			name="Arma 3 Alpha - Characters and Clothing";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
-		class Item41
+		class Item40
 		{
 			className="A3_Characters_F_Mark";
 			name="Arma 3 Marksmen - Characters and Clothing";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
-		class Item42
+		class Item41
 		{
 			className="ace_parachute";
 			name="ACE3 - Parachute";
 			author="ACE-Team";
 			url="http://ace3mod.com/";
 		};
-		class Item43
+		class Item42
 		{
 			className="A3_Weapons_F";
 			name="Arma 3 Alpha - Weapons and Accessories";
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
-		class Item44
+		class Item43
 		{
 			className="acex_sitting";
 			name="ACEX - Sitting";
 			author="ACE-Team";
 			url="http://ace3mod.com/";
 		};
-		class Item45
+		class Item44
 		{
 			className="RHS_US_A2_AirImport";
 			name="RHSUSF A2 Air Ports";
 			author="Red Hammer Studios";
 			url="http://www.rhsmods.org/";
 		};
-		class Item46
+		class Item45
 		{
 			className="rhsusf_c_fmtv";
 			name="FMTV Trucks";
 			author="Red Hammer Studios";
 			url="http://www.rhsmods.org/";
 		};
-		class Item47
+		class Item46
 		{
 			className="rhsusf_c_melb";
 			name="MELB";
 			author="Red Hammer Studios";
 			url="http://www.rhsmods.org/";
 		};
-		class Item48
+		class Item47
 		{
 			className="ace_map_gestures";
 			name="ACE3 - Map Gestures";
 			author="ACE-Team";
 			url="http://ace3mod.com/";
 		};
-		class Item49
+		class Item48
 		{
 			className="acex_headless";
 			name="ACEX - Headless";
@@ -6436,6 +6428,7 @@ class Mission
 			flags=4;
 			class Attributes
 			{
+				disableSimulation=1;
 			};
 			id=1000;
 			type="Land_CampingTable_F";
@@ -6462,25 +6455,6 @@ class Mission
 				};
 				class Attribute1
 				{
-					property="enableSimulation";
-					expression="if !(is3DEN) then {_this enablesimulationglobal _value;};";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"BOOL"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				class Attribute2
-				{
 					property="ace_isMedicalFacility";
 					expression="_this setVariable [""ace_medical_isMedicalFacility"",_value,true];";
 					class Value
@@ -6498,7 +6472,7 @@ class Mission
 						};
 					};
 				};
-				nAttributes=3;
+				nAttributes=2;
 			};
 		};
 		class Item54
@@ -6515,6 +6489,7 @@ class Mission
 			{
 				init="NE_VVS_OBJ addAction[""Get a car from storage"",VVS_fnc_openVVS,[""VVS_NE"",""Car""]];";
 				name="NE_VVS_OBJ";
+				disableSimulation=1;
 			};
 			id=1001;
 			type="Land_Laptop_unfolded_F";
@@ -6542,25 +6517,6 @@ class Mission
 				};
 				class Attribute1
 				{
-					property="enableSimulation";
-					expression="if !(is3DEN) then {_this enablesimulationglobal _value;};";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"BOOL"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				class Attribute2
-				{
 					property="ace_isMedicalFacility";
 					expression="_this setVariable [""ace_medical_isMedicalFacility"",_value,true];";
 					class Value
@@ -6578,7 +6534,7 @@ class Mission
 						};
 					};
 				};
-				nAttributes=3;
+				nAttributes=2;
 			};
 		};
 		class Item55
@@ -7256,12 +7212,12 @@ class Mission
 				angles[]={0.0016194459,3.0608151,0};
 			};
 			side="Empty";
-			flags=4;
 			class Attributes
 			{
 			};
 			id=1117;
 			type="rhsusf_m1025_w_s_m2";
+			atlOffset=3.8425217;
 		};
 		class Item92
 		{
@@ -7272,13 +7228,12 @@ class Mission
 				angles[]={0,3.1566803,0};
 			};
 			side="Empty";
-			flags=4;
 			class Attributes
 			{
 			};
 			id=1118;
 			type="rhsusf_m1025_w_s_m2";
-			atlOffset=0.04634285;
+			atlOffset=3.8888645;
 		};
 		class Item93
 		{
@@ -7294,7 +7249,7 @@ class Mission
 			};
 			id=1119;
 			type="rhsusf_m1025_w_s_Mk19";
-			atlOffset=5.8807631;
+			atlOffset=5.873601;
 		};
 		class Item94
 		{
@@ -7310,7 +7265,7 @@ class Mission
 			};
 			id=1120;
 			type="rhsusf_m1025_w_s_Mk19";
-			atlOffset=5.850749;
+			atlOffset=5.8435888;
 		};
 		class Item95
 		{
@@ -8406,7 +8361,7 @@ class Mission
 			};
 			id=1238;
 			type="rhsusf_M977A4_REPAIR_BKIT_M2_usarmy_wd";
-			atlOffset=3.0105839;
+			atlOffset=2.8249855;
 		};
 		class Item161
 		{
@@ -12603,6 +12558,7 @@ class Mission
 			flags=4;
 			class Attributes
 			{
+				disableSimulation=1;
 			};
 			id=1381;
 			type="Land_CampingTable_F";
@@ -12630,25 +12586,6 @@ class Mission
 				};
 				class Attribute1
 				{
-					property="enableSimulation";
-					expression="if !(is3DEN) then {_this enablesimulationglobal _value;};";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"BOOL"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				class Attribute2
-				{
 					property="ace_isMedicalFacility";
 					expression="_this setVariable [""ace_medical_isMedicalFacility"",_value,true];";
 					class Value
@@ -12666,7 +12603,7 @@ class Mission
 						};
 					};
 				};
-				nAttributes=3;
+				nAttributes=2;
 			};
 		};
 		class Item177
@@ -12682,6 +12619,7 @@ class Mission
 			{
 				init="M_VVS_OBJ addAction[""Get armor from storage"",VVS_fnc_openVVS,[""VVS_M"",""Armored""]];";
 				name="M_VVS_OBJ";
+				disableSimulation=1;
 			};
 			id=1382;
 			type="Land_Laptop_unfolded_F";
@@ -12709,25 +12647,6 @@ class Mission
 				};
 				class Attribute1
 				{
-					property="enableSimulation";
-					expression="if !(is3DEN) then {_this enablesimulationglobal _value;};";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"BOOL"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				class Attribute2
-				{
 					property="ace_isMedicalFacility";
 					expression="_this setVariable [""ace_medical_isMedicalFacility"",_value,true];";
 					class Value
@@ -12745,7 +12664,7 @@ class Mission
 						};
 					};
 				};
-				nAttributes=3;
+				nAttributes=2;
 			};
 		};
 		class Item178
@@ -15512,6 +15431,7 @@ class Mission
 			flags=4;
 			class Attributes
 			{
+				disableSimulation=1;
 			};
 			id=1626;
 			type="Land_CampingTable_F";
@@ -15539,25 +15459,6 @@ class Mission
 				};
 				class Attribute1
 				{
-					property="enableSimulation";
-					expression="if !(is3DEN) then {_this enablesimulationglobal _value;};";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"BOOL"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				class Attribute2
-				{
 					property="ace_isMedicalFacility";
 					expression="_this setVariable [""ace_medical_isMedicalFacility"",_value,true];";
 					class Value
@@ -15575,7 +15476,7 @@ class Mission
 						};
 					};
 				};
-				nAttributes=3;
+				nAttributes=2;
 			};
 		};
 		class Item330
@@ -15592,6 +15493,7 @@ class Mission
 			{
 				init="W_VVS_OBJ addAction[""Get armor from storage"",VVS_fnc_openVVS,[""VVS_W"",""Air""]];";
 				name="W_VVS_OBJ";
+				disableSimulation=1;
 			};
 			id=1627;
 			type="Land_Laptop_unfolded_F";
@@ -15619,25 +15521,6 @@ class Mission
 				};
 				class Attribute1
 				{
-					property="enableSimulation";
-					expression="if !(is3DEN) then {_this enablesimulationglobal _value;};";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"BOOL"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				class Attribute2
-				{
 					property="ace_isMedicalFacility";
 					expression="_this setVariable [""ace_medical_isMedicalFacility"",_value,true];";
 					class Value
@@ -15655,7 +15538,7 @@ class Mission
 						};
 					};
 				};
-				nAttributes=3;
+				nAttributes=2;
 			};
 		};
 		class Item331
@@ -16212,6 +16095,7 @@ class Mission
 			flags=4;
 			class Attributes
 			{
+				disableSimulation=1;
 			};
 			id=1684;
 			type="Land_CampingTable_F";
@@ -16239,25 +16123,6 @@ class Mission
 				};
 				class Attribute1
 				{
-					property="enableSimulation";
-					expression="if !(is3DEN) then {_this enablesimulationglobal _value;};";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"BOOL"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				class Attribute2
-				{
 					property="ace_isMedicalFacility";
 					expression="_this setVariable [""ace_medical_isMedicalFacility"",_value,true];";
 					class Value
@@ -16275,7 +16140,7 @@ class Mission
 						};
 					};
 				};
-				nAttributes=3;
+				nAttributes=2;
 			};
 		};
 		class Item359
@@ -16291,6 +16156,7 @@ class Mission
 			{
 				init="if (AW_Airfield == 0) then {B_VVS_OBJ addAction[""Get vehicles from storage"",VVS_fnc_openVVS,[""VVS_B"",""ALL""]];};";
 				name="B_VVS_OBJ";
+				disableSimulation=1;
 			};
 			id=1685;
 			type="Land_Laptop_unfolded_F";
@@ -16318,25 +16184,6 @@ class Mission
 				};
 				class Attribute1
 				{
-					property="enableSimulation";
-					expression="if !(is3DEN) then {_this enablesimulationglobal _value;};";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"BOOL"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				class Attribute2
-				{
 					property="ace_isMedicalFacility";
 					expression="_this setVariable [""ace_medical_isMedicalFacility"",_value,true];";
 					class Value
@@ -16354,7 +16201,7 @@ class Mission
 						};
 					};
 				};
-				nAttributes=3;
+				nAttributes=2;
 			};
 		};
 		class Item360
