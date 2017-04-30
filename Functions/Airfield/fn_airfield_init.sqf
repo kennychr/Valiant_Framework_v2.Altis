@@ -1,3 +1,18 @@
+/*
+ * Author: Pfc.Christiansen
+ * [Description]
+ *
+ * Arguments:
+ * 0: Argument Name <TYPE>
+ *
+ * Return Value:
+ * Return Name <TYPE>
+ *
+ * Example:
+ * ["example"] call ace_[module]_fnc_[functionName]
+ *
+ * Public: [Yes/No]
+ */
 //---------- Setup vars for airfields
 main_airfield_captured = false;
 w_airfield_captured = false;

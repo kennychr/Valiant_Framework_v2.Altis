@@ -1,5 +1,5 @@
 /*
- * Author: PFc.Christianse
+ * Author: PFc.Christiansen
  * [Loadout executer per unit, uses variable stored in unit via init field in editor.]
  *
  * Arguments:

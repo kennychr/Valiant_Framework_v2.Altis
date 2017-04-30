@@ -1,3 +1,18 @@
+/*
+ * Author: Rarek[AW]
+ * [Description]
+ *
+ * Arguments:
+ * 0: Argument Name <TYPE>
+ *
+ * Return Value:
+ * Return Name <TYPE>
+ *
+ * Example:
+ * ["example"] call ace_[module]_fnc_[functionName]
+ *
+ * Public: [Yes/No]
+ */
 private ["_spawnedUnits", "_side", "_soldiers", "_vehicles", "_toSpawn", "_type", "_pos", "_randomUnit", "_i", "_c", "_group", "_amount", "_loc", "_radius"];
 //Example: _spawnedUnits = [EAST, 25, getMarkerPos "test", 600] call AW_fnc_spawnEnemy;
 

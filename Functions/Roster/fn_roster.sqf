@@ -1,6 +1,6 @@
 /*
- * Author: [Name of Author(s)]
- * [Description]
+ * Author: [Pfc.Christiansen]
+ * [Inspired by Ryko's roster,simplified by me]
  *
  * Arguments:
  * 0: Argument Name <TYPE>

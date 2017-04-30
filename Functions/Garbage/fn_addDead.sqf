@@ -1,3 +1,18 @@
+/*
+ * Author: Rarek[AW]
+ * [Description]
+ *
+ * Arguments:
+ * 0: Argument Name <TYPE>
+ *
+ * Return Value:
+ * Return Name <TYPE>
+ *
+ * Example:
+ * ["example"] call ace_[module]_fnc_[functionName]
+ *
+ * Public: [Yes/No]
+ */
 _obj = _this;
 AW_dead = AW_dead + [_obj];
 
