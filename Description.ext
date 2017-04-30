@@ -1,4 +1,4 @@
-//-------------------------On Load
+//-------------------------On Load)
 
 onLoadName = "Valiant";						// Visible when loading mission
 OnLoadMission = " ... Join us on TeamSpeak at ts.ahoyworld.net:9987";
